@@ -1,4 +1,53 @@
+# Secrets — never commit
+.credentials.json
+*.local.json
+*token*
+*secret*
+*.key
+*.pem
+*_rsa
+*_ed25519
+.env
+.env.*
+
+# Session / transcript data — per-machine, can be huge
+home/.claude/projects/
+home/.claude/sessions/
+home/.claude/history.jsonl
+home/.claude/.credentials.json
+
+# Ephemeral state — auto-regenerated
+home/.claude/cache/
+home/.claude/debug/
+home/.claude/file-history/
+home/.claude/ide/
+home/.claude/logs/
+home/.claude/backups/
+home/.claude/session-env/
+home/.claude/shell-snapshots/
+home/.claude/image-cache/
+home/.claude/paste-cache/
+home/.claude/downloads/
+
+# Plugin caches — auto-refetched on new machine
+home/.claude/plugins/cache/
+home/.claude/plugins/data/
+home/.claude/plugins/repos/
+home/.claude/plugins/marketplaces/
+home/.claude/plugins/installed_plugins.json
+home/.claude/plugins/install-counts-cache.json
+home/.claude/plugins/blocklist.json
+
+# Machine-specific settings — user provides per-box
+home/.claude/settings.local.json
+
+# Memory — per-machine for now (revisit later)
+home/.claude/projects/*/memory/
+
+# Logs (repo-local)
 *.log
+
+# OS / editor noise
 .DS_Store
 *.swp
 *~
