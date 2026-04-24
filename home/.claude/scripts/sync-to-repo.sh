@@ -1,15 +1,16 @@
 #!/bin/bash
-# sync-to-repo.sh - Mirrors live ~/.claude/{agents,scripts} into the
-# claude-agents git repo and pushes any changes to GitHub.
+# sync-to-repo.sh - Mirrors portable parts of ~/.claude/ into the
+# gmaniac/claude repo and pushes any changes to GitHub. Machine-specific
+# state (sessions, caches, credentials) is explicitly excluded.
 #
-# Intended to run at the end of agent-review.sh (weekly cron), but can
-# also be invoked manually any time the live files have changed.
+# Runs at the end of agent-review.sh (weekly cron), or manually any time
+# live files change. Idempotent: no-op when nothing has changed.
 
 set -u
 
 REPO_DIR="${CLAUDE_AGENTS_REPO:-$HOME/claude-agents}"
-SRC_AGENTS="$HOME/.claude/agents"
-SRC_SCRIPTS="$HOME/.claude/scripts"
+SRC="$HOME/.claude"
+DEST="$REPO_DIR/home/.claude"
 REVIEWS_DIR="$HOME/.claude/logs/agent-reviews"
 LOG="$HOME/.claude/logs/sync-to-repo.log"
 
@@ -26,21 +27,45 @@ fi
 
 cd "$REPO_DIR" || { log "ERROR: cd $REPO_DIR failed"; exit 1; }
 
-# Make sure we're on main and up to date before making changes
 git checkout main >> "$LOG" 2>&1 || { log "ERROR: checkout main failed"; exit 1; }
 git pull --ff-only origin main >> "$LOG" 2>&1 || log "WARN: pull failed (continuing)"
 
-# Mirror agents and scripts (--delete so removals propagate)
-rsync -a --delete "$SRC_AGENTS/" "$REPO_DIR/agents/"
-rsync -a --delete "$SRC_SCRIPTS/" "$REPO_DIR/scripts/"
+mkdir -p "$DEST"
 
-# Copy the latest review report (if any) into reports/
+# Top-level framework docs (*.md at ~/.claude root)
+for f in "$SRC"/*.md; do
+  [ -f "$f" ] && cp "$f" "$DEST/"
+done
+
+# Global settings (never settings.local.json)
+[ -f "$SRC/settings.json" ] && cp "$SRC/settings.json" "$DEST/settings.json"
+
+# Directories that mirror wholesale (source of truth is live)
+for d in agents commands hooks skills scripts; do
+  if [ -d "$SRC/$d" ]; then
+    mkdir -p "$DEST/$d"
+    rsync -a --delete "$SRC/$d/" "$DEST/$d/"
+  fi
+done
+
+# Plugin config - portable parts only. Caches, marketplaces clones, and
+# machine-specific install paths are excluded via .gitignore.
+mkdir -p "$DEST/plugins"
+[ -f "$SRC/plugins/config.json" ]             && cp "$SRC/plugins/config.json"             "$DEST/plugins/config.json"
+[ -f "$SRC/plugins/known_marketplaces.json" ] && cp "$SRC/plugins/known_marketplaces.json" "$DEST/plugins/known_marketplaces.json"
+
+# Latest agent-review report into reports/
 if [ -d "$REVIEWS_DIR" ]; then
   mkdir -p "$REPO_DIR/reports"
   LATEST_REPORT=$(ls -t "$REVIEWS_DIR"/*.md 2>/dev/null | head -1)
-  if [ -n "$LATEST_REPORT" ]; then
-    cp "$LATEST_REPORT" "$REPO_DIR/reports/"
-  fi
+  [ -n "$LATEST_REPORT" ] && cp "$LATEST_REPORT" "$REPO_DIR/reports/"
+fi
+
+# Safety net: refuse to commit if any staged path looks like a secret
+if git status --porcelain | grep -E '(\.credentials\.json|settings\.local\.json|\.env($|\.)|\.(key|pem)$|_(rsa|ed25519)$)' > /dev/null; then
+  log "ERROR: Secret-like file staged. Aborting before commit."
+  git status --porcelain >> "$LOG"
+  exit 2
 fi
 
 if [ -z "$(git status --porcelain)" ]; then

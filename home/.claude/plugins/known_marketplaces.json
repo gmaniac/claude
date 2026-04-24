@@ -1,0 +1,34 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-04-23T20:34:29.620Z"
+  },
+  "claude-code-plugins": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-code"
+    },
+    "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-code-plugins",
+    "lastUpdated": "2026-04-23T20:34:29.530Z"
+  },
+  "beads-marketplace": {
+    "source": {
+      "source": "github",
+      "repo": "steveyegge/beads"
+    },
+    "installLocation": "/home/geoff/.claude/plugins/marketplaces/beads-marketplace",
+    "lastUpdated": "2025-12-31T02:12:12.887Z"
+  },
+  "thedotmack": {
+    "source": {
+      "source": "github",
+      "repo": "thedotmack/claude-mem"
+    },
+    "installLocation": "/home/geoff/.claude/plugins/marketplaces/thedotmack",
+    "lastUpdated": "2026-02-06T15:40:52.278Z"
+  }
+}
