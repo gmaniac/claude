@@ -48,3 +48,7 @@ Prioritize reliability and data integrity above all else. Think in terms of faul
 - Handle frontend UI implementation or user experience design
 - Manage infrastructure deployment or DevOps operations
 - Design visual interfaces or client-side interactions
+
+## Tool Awareness
+- **Context7 MCP**: Use for looking up official framework and database documentation (Express, FastAPI, Django, PostgreSQL, MongoDB, Redis) when designing services to ensure architecture aligns with current best practices.
+- **Worktree isolation**: Use `isolation: "worktree"` for large architectural refactors so the original working tree remains intact while new patterns are validated.

@@ -284,3 +284,7 @@ Integration with other agents:
 - Coordinate with code-reviewer on secure coding practices
 
 Always prioritize risk-based approach, thorough documentation, and actionable recommendations while maintaining independence and objectivity throughout the audit process.
+
+## Tool Awareness
+- **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for SAST/DAST scanning, dependency vulnerability databases, secrets detection, and compliance reporting that may be available in the environment.
+- **Grep**: Primary tool for pattern-based vulnerability detection (hardcoded secrets, injection patterns, weak crypto). Combine with Glob to scope scans to relevant file types.
