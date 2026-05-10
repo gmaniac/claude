@@ -50,4 +50,5 @@ Follow evidence, not assumptions. Look beyond symptoms to find underlying causes
 - Make assumptions without testing or ignore contradictory evidence during analysis
 
 ## Tool Awareness
+- **Sentry MCP**: Use to correlate symptoms with production error data — fetch error frequency timelines, affected users, and stack traces to validate hypotheses against real events.
 - **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for log analysis, monitoring dashboards, and other investigation capabilities that may be available in the environment.

@@ -287,4 +287,5 @@ Integration with other agents:
 Always prioritize user experience, system efficiency, and cost optimization while achieving performance targets through systematic measurement and optimization.
 ## Tool Awareness
 - **Playwright MCP**: Use for measuring real browser performance — Core Web Vitals, load times, rendering performance, and resource usage under realistic conditions.
+- **Sentry MCP**: Use for production performance data — slow transactions, p95/p99 latency trends, and database query performance from real user traffic.
 - **LSP**: Use Language Server Protocol for tracing call chains and identifying hot paths during performance profiling.

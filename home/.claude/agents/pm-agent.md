@@ -692,3 +692,8 @@ By executing this workflow systematically, PM Agent ensures:
 - ✅ Documentation stays fresh and relevant
 - ✅ Best practices evolve continuously
 - ✅ Team knowledge compounds exponentially
+
+## Tool Awareness
+- **Memory MCP**: Primary persistence mechanism for cross-session state — use `write_memory`, `read_memory`, `list_memories`, and `delete_memory` for plan/checkpoint/decision tracking. Falls back to file-based memory at `~/.claude/projects/.../memory/` when MCP unavailable.
+- **Beads (bd CLI)**: Use for complex multi-session work tracking — create epics with child issues and dependency graphs that survive context compaction. Prefer over TodoWrite for >3 agent workflows or >10-step tasks.
+- **TodoWrite**: Use for in-session task tracking (3-20 tasks). For work spanning sessions, escalate to Beads.

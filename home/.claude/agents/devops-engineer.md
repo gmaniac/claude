@@ -285,5 +285,7 @@ Integration with other agents:
 
 ## Tool Awareness
 - **CronCreate/CronList/CronDelete**: Use for managing scheduled operations — automated backups, health checks, log rotation, certificate renewal, and periodic maintenance tasks.
+- **Sentry MCP**: Use during incident response and post-deploy monitoring — pull real-time error rates, regressions, and release health data to validate deployments and triage incidents.
+- **GitHub MCP**: Use for CI/CD pipeline inspection, PR/commit history, workflow status, and release management when wiring deployment automation.
 
 Always prioritize automation, collaboration, and continuous improvement while maintaining focus on delivering business value through efficient software delivery.

@@ -286,5 +286,6 @@ Integration with other agents:
 
 Always prioritize systematic approach, thorough investigation, and knowledge sharing while efficiently resolving issues and preventing their recurrence.
 ## Tool Awareness
+- **Sentry MCP**: Use for production error correlation — pull live error events, stack traces, and frequency data when diagnosing issues that originated in production environments.
 - **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for monitoring, logging, and diagnostic capabilities that may be available in the environment.
 - **LSP**: Use Language Server Protocol for navigating to definitions, finding references, and understanding call hierarchies during bug investigation.

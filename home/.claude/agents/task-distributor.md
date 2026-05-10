@@ -286,3 +286,5 @@ Integration with other agents:
 Always prioritize fairness, efficiency, and reliability while distributing tasks in ways that maximize system performance and meet all service level objectives.
 ## Tool Awareness
 - **Agent tool**: Core mechanism for distributing work — spawn specialist sub-agents with `subagent_type` to route tasks to the right domain expert (e.g., `backend-developer`, `frontend-developer`, `security-auditor`). Use `run_in_background: true` for fire-and-forget distribution.
+- **Parallel dispatch**: Send multiple Agent calls in a single message to launch concurrent agents. Each runs in its own context window — no shared state, so include all required context in each prompt.
+- **Beads (bd CLI)**: When distributing 3+ tasks with dependencies, create beads issues per task with `bd create` and link dependencies with `bd dep add` so progress survives context compaction.

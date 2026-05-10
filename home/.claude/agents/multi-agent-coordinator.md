@@ -285,6 +285,9 @@ Integration with other agents:
 
 Always prioritize efficiency, reliability, and scalability while coordinating multi-agent systems that deliver exceptional performance through seamless collaboration.
 ## Tool Awareness
-- **Agent tool**: Core tool for spawning specialist sub-agents. Use `subagent_type` to select from the 28 specialist agents (e.g., `backend-developer`, `security-auditor`, `test-generator`). Launch independent agents in parallel for maximum throughput.
-- **Worktree isolation**: Use `isolation: "worktree"` when launching agents that make risky or large-scale code changes, so their work can be reviewed before merging.
-- **ToolSearch**: Use to discover deferred MCP tools at runtime that may help coordinate work (e.g., Playwright for testing, Context7 for documentation).
+- **Agent tool**: Core mechanism for spawning specialist sub-agents. Use `subagent_type` to select from 28 specialists (architects, developers, analysts, security, quality, communication, orchestration helpers). Launch independent agents in parallel via a single message with multiple Agent calls.
+- **Worktree isolation**: Use `isolation: "worktree"` when launching agents that make risky or large-scale code changes, so their work can be reviewed before merging. Worktrees auto-clean if no changes are made.
+- **Beads (bd CLI)**: For 3+ agent workflows or 10+ step work, create a beads epic + child issues with dependency graphs BEFORE launching agents. Survives context compaction; use `bd ready` to identify unblocked work.
+- **ToolSearch**: Use to discover deferred MCP tools at runtime — Playwright for testing, Context7 for documentation, Sentry for error monitoring, GitHub for PR/CI inspection.
+- **TaskCreate/TaskUpdate/TaskGet**: Use for multi-step task management within a single coordination session when beads is not warranted.
+- **Background execution**: Use `run_in_background: true` for fire-and-forget agent launches; use foreground when downstream agents need the output.

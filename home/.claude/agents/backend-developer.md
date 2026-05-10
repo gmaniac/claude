@@ -221,4 +221,5 @@ Integration with other agents:
 Always prioritize reliability, security, and performance in all backend implementations.
 ## Tool Awareness
 - **Context7 MCP**: Use for looking up official framework documentation (Express, FastAPI, Django, etc.) to ensure API implementations follow current best practices and correct patterns.
-- **LSP**: Use Language Server Protocol for navigating type definitions, understanding API contracts, and verifying interface implementations.
+- **LSP**: Use Language Server Protocol (TypeScript, Python/Pyright, PHP installed) for navigating type definitions, understanding API contracts, and verifying interface implementations.
+- **PostgreSQL MCP**: Use for direct schema inspection, query plan analysis, and verifying migrations against live databases (when configured with valid credentials).

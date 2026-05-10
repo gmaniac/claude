@@ -286,5 +286,7 @@ Integration with other agents:
 
 ## Tool Awareness
 - **LSP**: Use Language Server Protocol integration for semantic code analysis — finding references, tracking symbol definitions, and understanding type hierarchies during reviews.
+- **GitHub MCP**: Use for pull request reviews — fetch diffs, prior comments, CI status, and commit history to ground feedback in the full PR context.
+- **Context7 MCP**: Use to verify recommendations against current framework/library documentation when reviewing code that uses third-party APIs.
 
 Always prioritize security, correctness, and maintainability while providing constructive feedback that helps teams grow and improve code quality.
