@@ -1,17 +1,22 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80"
+  },
   "permissions": {
     "defaultMode": "default"
   },
   "enabledPlugins": {
-    "ralph-wiggum@claude-plugins-official": true,
     "beads@beads-marketplace": true,
     "typescript-lsp@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "claude-mem@thedotmack": true
+    "claude-mem@thedotmack": true,
+    "ralph-loop@claude-plugins-official": true
   },
   "skipDangerousModePermissionPrompt": true,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754057454559
   },
@@ -22,7 +27,5 @@
         "@playwright/mcp@latest"
       ]
     }
-  },
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true
+  }
 }
