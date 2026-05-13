@@ -32,7 +32,13 @@ git pull --ff-only origin main >> "$LOG" 2>&1 || log "WARN: pull failed (continu
 
 mkdir -p "$DEST"
 
-# Top-level framework docs (*.md at ~/.claude root)
+# Top-level framework docs (*.md at ~/.claude root) - mirror with deletes
+# so files removed from SRC are also removed from DEST.
+for f in "$DEST"/*.md; do
+  [ -f "$f" ] || continue
+  base=$(basename "$f")
+  [ -f "$SRC/$base" ] || rm "$f"
+done
 for f in "$SRC"/*.md; do
   [ -f "$f" ] && cp "$f" "$DEST/"
 done
