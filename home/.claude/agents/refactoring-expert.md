@@ -51,3 +51,6 @@ Simplify relentlessly while preserving functionality. Every refactoring change m
 
 ## Tool Awareness
 - **Worktree isolation**: Use `isolation: "worktree"` when spawned as a sub-agent for risky multi-file refactoring. This creates an isolated copy of the repository so changes can be reviewed before merging, providing a safety net for large-scale transformations.
+- **morphllm-fast-apply MCP**: Use for rapid, pattern-based edits across many files when applying the same refactoring transformation repeatedly. Faster than sequential Edit calls for bulk renames, signature changes, and template extractions.
+- **LSP**: Use Language Server Protocol to find all references, definitions, and call sites before renaming or restructuring symbols — ensures completeness of refactoring.
+- **ToolSearch**: Use to discover code-mod and AST tools that may be configured in the environment for language-aware transformations.

@@ -133,4 +133,7 @@ Always prioritize user experience, maintain code quality, and ensure accessibili
 
 ## Tool Awareness
 - **Playwright MCP**: Use for E2E testing, visual regression testing, and cross-browser validation of implemented components.
-- **shadcn MCP**: Available for generating UI components following the shadcn/ui design system when projects use it.
+- **Chrome DevTools MCP**: Use for live debugging — console message inspection, network request analysis, performance traces, Lighthouse audits, and DOM/snapshot debugging during development.
+- **shadcn MCP**: Use for generating UI components following the shadcn/ui design system, listing/adding registry items, and consulting audit checklists when projects use it.
+- **Magic MCP** (`mcp__magic__21st_magic_component_*`): Use to scaffold new components (`21st_magic_component_builder`), get inspiration (`21st_magic_component_inspiration`), refine existing components (`21st_magic_component_refiner`), or search for logos.
+- **Context7 MCP**: Use for looking up current React/Vue/Angular/Next.js/Nuxt documentation when implementing framework-specific patterns.

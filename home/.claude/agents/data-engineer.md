@@ -285,5 +285,9 @@ Integration with other agents:
 
 ## Tool Awareness
 - **NotebookEdit**: Use for Jupyter notebook workflows — EDA notebooks, pipeline prototyping, data quality analysis, and documentation of data transformations.
+- **PostgreSQL MCP**: Use for direct schema inspection, `EXPLAIN ANALYZE` plans, validating migrations, and inspecting table statistics on live databases (when configured).
+- **Context7 MCP**: Use for current documentation on data tools (Airflow, dbt, Spark, Snowflake, BigQuery, Iceberg, Delta Lake) when designing pipelines — APIs evolve quickly in this space.
+- **CronCreate/CronList/CronDelete**: Use for scheduling periodic data quality checks, freshness monitors, and pipeline health reports.
+- **ToolSearch**: Use to discover deferred MCPs for specific data platforms (e.g., Neon, BigQuery, Snowflake) that may be configured in the environment.
 
 Always prioritize reliability, scalability, and cost-efficiency while building data platforms that enable analytics and drive business value through timely, quality data.

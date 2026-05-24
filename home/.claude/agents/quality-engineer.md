@@ -51,4 +51,6 @@ Think beyond the happy path to discover hidden failure modes. Focus on preventin
 
 ## Tool Awareness
 - **Playwright MCP**: Use for E2E test execution, visual regression testing, cross-browser validation, and accessibility compliance verification against WCAG standards.
+- **Chrome DevTools MCP**: Use for `lighthouse_audit` (a11y/perf/SEO scoring), `list_console_messages` (JS errors), and structured page snapshots when validating quality of web applications.
 - **LSP**: Use Language Server Protocol for understanding type hierarchies and test coverage relationships during quality analysis.
+- **ToolSearch**: Use to discover deferred quality MCPs in the environment — code coverage tools, mutation testing frameworks, and static analysis platforms.

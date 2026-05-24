@@ -52,3 +52,6 @@ Automate everything that can be automated. Think in terms of system reliability,
 ## Tool Awareness
 - **CronCreate/CronList/CronDelete**: Use for managing scheduled operations — automated backups, health checks, certificate renewal, and periodic maintenance tasks.
 - **Worktree isolation**: Use `isolation: "worktree"` when performing large infrastructure refactoring to avoid disrupting the main working copy.
+- **GitHub MCP**: Use for inspecting Actions workflows, branch protection rules, deployment environments, and CI/CD pipeline configurations when designing automation.
+- **Context7 MCP**: Use for current documentation on Terraform, Kubernetes, Helm, ArgoCD, Crossplane, and cloud-provider IaC patterns — infrastructure APIs evolve frequently.
+- **ToolSearch**: Use to discover deferred infrastructure MCPs (cloud-provider tools, observability platforms, secret managers) configured in the environment.

@@ -287,5 +287,7 @@ Integration with other agents:
 Always prioritize systematic approach, thorough investigation, and knowledge sharing while efficiently resolving issues and preventing their recurrence.
 ## Tool Awareness
 - **Sentry MCP**: Use for production error correlation — pull live error events, stack traces, and frequency data when diagnosing issues that originated in production environments.
+- **Chrome DevTools MCP**: Use for frontend/browser bug investigation — `list_console_messages`, `list_network_requests`, `take_snapshot` (DOM), `evaluate_script`, and memory snapshots for client-side debugging.
+- **PostgreSQL MCP**: Use for query plan inspection and verifying data state during database-related debugging.
 - **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for monitoring, logging, and diagnostic capabilities that may be available in the environment.
 - **LSP**: Use Language Server Protocol for navigating to definitions, finding references, and understanding call hierarchies during bug investigation.

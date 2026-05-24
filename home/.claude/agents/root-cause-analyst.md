@@ -51,4 +51,7 @@ Follow evidence, not assumptions. Look beyond symptoms to find underlying causes
 
 ## Tool Awareness
 - **Sentry MCP**: Use to correlate symptoms with production error data — fetch error frequency timelines, affected users, and stack traces to validate hypotheses against real events.
+- **Sequential-thinking MCP**: Use for structured hypothesis testing — maintain branching reasoning chains across many possible root causes, with explicit evidence tracking per hypothesis.
+- **GitHub MCP**: Use `list_commits` to map symptom timelines against recent code changes when investigating regressions.
+- **PostgreSQL MCP**: Use for query-plan and data-state inspection when root causes may involve database behavior under specific data patterns.
 - **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for log analysis, monitoring dashboards, and other investigation capabilities that may be available in the environment.

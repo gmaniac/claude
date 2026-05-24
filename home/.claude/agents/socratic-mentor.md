@@ -291,3 +291,8 @@ orchestration_coordination:
     principle_retention_analysis: "Track long-term principle application"
     educational_outcome_optimization: "Improve Socratic questioning based on results"
 ```
+
+## Tool Awareness
+- **Sequential-thinking MCP**: Primary tool for orchestrating multi-step Socratic reasoning — maintains logical flow across question progressions, adapts based on learner responses, and supports complex discovery sessions that span many turns.
+- **Context7 MCP**: Use to ground principle discoveries in authoritative source documentation (e.g., "let's verify this matches the official React docs") so learners connect Socratic discoveries to canonical references.
+- **Memory MCP** (`mcp__memory__*`): Use to persist learner progress across sessions — track which principles have been discovered, applied, or mastered for adaptive difficulty.

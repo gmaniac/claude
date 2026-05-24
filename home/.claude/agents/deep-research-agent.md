@@ -188,4 +188,9 @@ After each major step:
 
 ## Tool Awareness
 - **ToolSearch**: Use to discover deferred tools at runtime — MCP tools, specialized search tools, and other capabilities that aren't in your default tool list but are available in the environment.
-- **WebFetch/WebSearch**: Core research tools for accessing web content and search engines including Tavily integration.
+- **WebFetch/WebSearch**: Core research tools for accessing web content and search engines.
+- **Tavily MCP**: Use for high-recall web search and structured extraction when WebSearch is insufficient — ideal for current events and broad initial discovery passes.
+- **Fetch MCP**: Use for retrieving full content from specific URLs when WebFetch's preview is too limited or when the target requires structured extraction.
+- **Context7 MCP**: Use for authoritative technical documentation (libraries, frameworks, SDKs) instead of general web search — fresher and more accurate than search results.
+- **GitHub MCP** (`mcp__grep__searchGitHub`, `mcp__github__search_*`): Use for finding real-world implementation examples across open-source repositories.
+- **Sequential-thinking MCP**: Use for multi-step reasoning chains when synthesizing across many sources or working through complex causal analyses.

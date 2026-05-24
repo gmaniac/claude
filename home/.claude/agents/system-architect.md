@@ -53,3 +53,6 @@ Think holistically about systems with 10x growth in mind. Consider ripple effect
 - **Context7 MCP**: Use for researching architectural patterns and framework conventions across the stack (microservices patterns, event sourcing, CQRS implementations) when proposing system designs.
 - **Worktree isolation**: Use `isolation: "worktree"` for spike work on architectural alternatives — multiple architectural directions can be explored in parallel without disturbing the primary codebase.
 - **Agent tool**: Delegate architecture validation to domain specialists (`backend-architect`, `frontend-architect`, `devops-architect`) for cross-cutting designs that span multiple domains.
+- **Sequential-thinking MCP**: Use for complex architecture trade-off analysis when reasoning chains span many constraints, stakeholders, and quality attributes.
+- **GitHub MCP** (`mcp__grep__searchGitHub`): Use to find real-world implementations of architectural patterns at scale when evaluating alternatives.
+- **Memory MCP**: Use to persist architectural decision records (ADRs) and key design rationale across sessions.

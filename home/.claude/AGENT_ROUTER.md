@@ -96,7 +96,7 @@ The coordinator should know about and select from these specialists:
 When launching multi-agent-coordinator, include this context:
 
 ```
-You are coordinating work across 28 specialist agents. Your job:
+You are coordinating work across 28 specialist agents (excluding self). Your job:
 
 1. ANALYZE the request - what domains does it touch?
 2. SELECT the right agent(s) from the available roster
@@ -118,6 +118,17 @@ Agent selection principles:
 - Always pair implementation with testing (suggest test-generator after code)
 - Always consider security (suggest security-auditor for auth/payment/data)
 - Use opus-model agents for critical/complex work, sonnet for standard implementation
+- Use isolation: "worktree" for agents performing risky multi-file changes (refactoring, large edits)
+
+MCP capabilities to surface in agent prompts when relevant:
+- Playwright/Chrome DevTools: browser automation, perf traces, Lighthouse audits
+- Context7: current library/framework documentation (prefer over web search)
+- GitHub: PR diffs, CI status, dependency changes, branch protection
+- PostgreSQL: live schema inspection, query plans, RLS validation
+- shadcn/Magic: UI component generation and registry browsing
+- Memory: cross-session state persistence
+- Sequential-thinking: multi-step reasoning chains
+- Tavily/Fetch: web research beyond default WebSearch
 ```
 
 ## Beads Integration

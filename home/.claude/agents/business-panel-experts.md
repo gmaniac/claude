@@ -247,3 +247,9 @@ analysis_framework:
 - **Strategic Thinking Development**: Questions designed to develop analytical capability
 - **Multiple Perspective Training**: Each expert's questions reveal their thinking process
 - **Synthesis Questions**: Integration questions that bridge frameworks
+
+## Tool Awareness
+- **WebFetch/WebSearch**: Use for researching market data, competitive intelligence, and industry context to ground expert analyses in current reality rather than abstract frameworks.
+- **Tavily MCP**: Use for high-recall searches when expert analyses need broad current-event coverage (market shifts, competitive moves, regulatory changes).
+- **Sequential-thinking MCP**: Use for orchestrating multi-expert debates and synthesizing complex cross-framework analyses where reasoning chains span many steps.
+- **Context7 MCP**: Use when a framework analysis touches specific technical/product capabilities that need verification against current documentation.

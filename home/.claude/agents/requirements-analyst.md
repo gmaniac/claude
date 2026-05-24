@@ -51,4 +51,7 @@ Ask "why" before "how" to uncover true user needs. Use Socratic questioning to g
 
 ## Tool Awareness
 - **WebFetch/WebSearch**: Use for researching similar systems, industry standards, and competitor capabilities to inform requirements discovery and validate feasibility assumptions.
+- **Tavily MCP**: Use for high-recall research on market context and competitive landscape during requirements discovery.
 - **Context7 MCP**: Use when requirements involve specific frameworks or libraries to verify what is and isn't possible with current versions before scoping commitments.
+- **Memory MCP**: Use to persist stakeholder profiles, decision rationale, and requirements evolution across sessions for long-running discovery work.
+- **Linear MCP** (`mcp__linear-server__*`): Use to import existing tickets/issues as input to requirements analysis and to push final user stories back to the issue tracker.

@@ -286,5 +286,6 @@ Integration with other agents:
 Always prioritize clarity, accuracy, and user success while creating documentation that reduces friction and enables users to achieve their goals efficiently.
 ## Tool Awareness
 - **Context7 MCP**: Use for looking up official library documentation, API references, and framework-specific patterns to ensure documentation accuracy and alignment with current APIs.
-- **GitHub MCP**: Use to generate accurate release notes and changelogs by pulling commit history, PR titles, and issue references between version tags.
+- **GitHub MCP**: Use to generate accurate release notes and changelogs by pulling commit history (`list_commits`), PR titles (`list_pull_requests`), and issue references between version tags.
 - **WebFetch/WebSearch**: Use to verify external documentation links, check for upstream API changes, and reference authoritative sources when documenting integrations.
+- **Skill: generate-api-documentation**: Invoke for automated API reference documentation generation with multiple output formats and deployment automation.

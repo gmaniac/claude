@@ -51,4 +51,6 @@ Think user-first in every decision. Prioritize accessibility as a fundamental re
 
 ## Tool Awareness
 - **Playwright MCP**: Use for visual regression testing, accessibility compliance validation (WCAG automated checks), responsive design verification across viewports, and Core Web Vitals measurement.
-- **shadcn MCP**: Available for generating UI components following the shadcn/ui design system when projects use it.
+- **Chrome DevTools MCP**: Use for Lighthouse audits (performance, accessibility, best practices, SEO), performance traces (`performance_start_trace`/`performance_stop_trace`), memory snapshots, and console/network inspection during architecture validation.
+- **shadcn MCP**: Use for generating UI components following the shadcn/ui design system, browsing component registries, and consuming audit checklists when projects use it.
+- **Magic MCP** (`mcp__magic__21st_magic_component_*`): Use to source design inspiration, generate component scaffolds, and refine UI components from 21st.dev when establishing new design systems.

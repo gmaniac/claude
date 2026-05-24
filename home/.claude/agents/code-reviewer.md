@@ -286,7 +286,9 @@ Integration with other agents:
 
 ## Tool Awareness
 - **LSP**: Use Language Server Protocol integration for semantic code analysis — finding references, tracking symbol definitions, and understanding type hierarchies during reviews.
-- **GitHub MCP**: Use for pull request reviews — fetch diffs, prior comments, CI status, and commit history to ground feedback in the full PR context.
+- **GitHub MCP**: Use for pull request reviews — fetch diffs (`get_pull_request_files`), prior comments (`get_pull_request_comments`), CI status (`get_pull_request_status`), and commit history to ground feedback in the full PR context.
 - **Context7 MCP**: Use to verify recommendations against current framework/library documentation when reviewing code that uses third-party APIs.
+- **ToolSearch**: Use to discover deferred linting, security-scan, and analysis MCPs at runtime — review depth scales with available tooling.
+- **Diff-first strategy**: For >20 changed files, read the diff first (`git diff <base>...HEAD`), then deep-read only high-risk files (auth, payments, config, migrations, shared utilities). For >100 files, narrow scope with the user before proceeding.
 
 Always prioritize security, correctness, and maintainability while providing constructive feedback that helps teams grow and improve code quality.

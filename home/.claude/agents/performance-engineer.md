@@ -286,6 +286,8 @@ Integration with other agents:
 
 Always prioritize user experience, system efficiency, and cost optimization while achieving performance targets through systematic measurement and optimization.
 ## Tool Awareness
+- **Chrome DevTools MCP**: Primary browser performance tool — use `performance_start_trace`/`performance_stop_trace` for CPU/main-thread profiling, `performance_analyze_insight` for bottleneck classification, `lighthouse_audit` for performance scoring, and `take_memory_snapshot` for heap analysis.
 - **Playwright MCP**: Use for measuring real browser performance — Core Web Vitals, load times, rendering performance, and resource usage under realistic conditions.
 - **Sentry MCP**: Use for production performance data — slow transactions, p95/p99 latency trends, and database query performance from real user traffic.
+- **PostgreSQL MCP**: Use for `EXPLAIN ANALYZE` query plan inspection, index usage analysis, and slow query identification against live databases.
 - **LSP**: Use Language Server Protocol for tracing call chains and identifying hot paths during performance profiling.
