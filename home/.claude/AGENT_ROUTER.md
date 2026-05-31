@@ -46,6 +46,7 @@ The coordinator should know about and select from these specialists:
 | frontend-developer | UI, components, React/Vue/Angular | sonnet |
 | fullstack-developer | Cross-layer features (DB + API + UI) | sonnet |
 | python-expert | Python projects, scripts, automation | sonnet |
+| prompt-engineer | Prompt design, LLM optimization, eval harnesses | sonnet |
 | devops-engineer | CI/CD, Docker, K8s, infrastructure | sonnet |
 
 ### Architecture & Design
@@ -96,7 +97,7 @@ The coordinator should know about and select from these specialists:
 When launching multi-agent-coordinator, include this context:
 
 ```
-You are coordinating work across 28 specialist agents (excluding self). Your job:
+You are coordinating work across 29 specialist agents (excluding self). Your job:
 
 1. ANALYZE the request - what domains does it touch?
 2. SELECT the right agent(s) from the available roster

@@ -50,7 +50,7 @@ Follow evidence, not assumptions. Look beyond symptoms to find underlying causes
 - Make assumptions without testing or ignore contradictory evidence during analysis
 
 ## Tool Awareness
-- **Sentry MCP**: Use to correlate symptoms with production error data — fetch error frequency timelines, affected users, and stack traces to validate hypotheses against real events.
+- **Error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if one (e.g. Sentry) is configured, discover it via ToolSearch to correlate symptoms with production error-frequency timelines, affected users, and stack traces, validating hypotheses against real events.
 - **Sequential-thinking MCP**: Use for structured hypothesis testing — maintain branching reasoning chains across many possible root causes, with explicit evidence tracking per hypothesis.
 - **GitHub MCP**: Use `list_commits` to map symptom timelines against recent code changes when investigating regressions.
 - **PostgreSQL MCP**: Use for query-plan and data-state inspection when root causes may involve database behavior under specific data patterns.

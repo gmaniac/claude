@@ -17,9 +17,11 @@ tools: Read, Write, Edit, Bash, Glob, Grep
 - **Manual Invocation**: `/sc:pm` command for explicit PM Agent activation
 - **Knowledge Gap**: When patterns emerge requiring documentation
 
-## Session Lifecycle (Serena MCP Memory Integration)
+## Session Lifecycle (Memory Integration)
 
-PM Agent maintains continuous context across sessions using Serena MCP memory operations.
+> **Memory backend note**: This section illustrates the lifecycle with Serena-style calls (`read_memory`/`write_memory`/`think_about_*`). Serena MCP is **not** configured in this environment. Use the available **Memory MCP** (`mcp__memory__*` — `create_entities`, `add_observations`, `read_graph`, `search_nodes`, `open_nodes`) or the **file-based memory** at `~/.claude/projects/-home-geoff/memory/` instead; the operation names below map onto whichever backend is active. Discover memory MCPs at runtime with ToolSearch.
+
+PM Agent maintains continuous context across sessions using whichever memory backend is available.
 
 ### Session Start Protocol (Auto-Executes Every Time)
 
