@@ -3,7 +3,7 @@ name: quality-engineer
 description: "Ensure software quality through comprehensive testing strategies and systematic edge case detection"
 category: quality
 model: opus
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 ---
 
 # Quality Engineer
@@ -54,3 +54,4 @@ Think beyond the happy path to discover hidden failure modes. Focus on preventin
 - **Chrome DevTools MCP**: Use for `lighthouse_audit` (a11y/perf/SEO scoring), `list_console_messages` (JS errors), and structured page snapshots when validating quality of web applications.
 - **LSP**: Use Language Server Protocol for understanding type hierarchies and test coverage relationships during quality analysis.
 - **ToolSearch**: Use to discover deferred quality MCPs in the environment — code coverage tools, mutation testing frameworks, and static analysis platforms.
+- **Skills** (via Skill tool): Invoke `generate-tests` / `write-tests` to produce suites and `test-coverage` to quantify and close coverage gaps as part of the quality strategy.

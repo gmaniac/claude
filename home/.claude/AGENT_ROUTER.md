@@ -130,6 +130,17 @@ MCP capabilities to surface in agent prompts when relevant:
 - Memory: cross-session state persistence
 - Sequential-thinking: multi-step reasoning chains
 - Tavily/Fetch: web research beyond default WebSearch
+
+Skills to leverage (via the Skill tool — 14 specialists are now Skill-enabled):
+- Testing: generate-tests, write-tests, test-coverage (test-generator, quality-engineer)
+- Review: code-review, code-review-checklist (code-reviewer)
+- Security: security-audit, security-best-practices, dependency-audit (security-auditor, security-engineer)
+- Refactor/cleanup: refactor-code, simplify, sc:cleanup (refactoring-expert)
+- Performance: performance-audit (performance-engineer)
+- Docs: generate-api-documentation (technical-writer)
+- Scaffolding: init:fastapi, init:nextjs, init:react-native, init:fullstack, init:python-cli (developers, python-expert)
+- DevOps: setup-docker-containers, prepare-release (devops-engineer)
+- Prefer invoking a project-standard skill over reimplementing the workflow ad hoc.
 ```
 
 ## Beads Integration

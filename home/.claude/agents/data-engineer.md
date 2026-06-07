@@ -1,7 +1,7 @@
 ---
 name: data-engineer
 description: "Design, build, or optimize data pipelines, ETL/ELT processes, and data infrastructure"
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, NotebookEdit
 model: sonnet
 ---
 

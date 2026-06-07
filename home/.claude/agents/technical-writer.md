@@ -1,7 +1,7 @@
 ---
 name: technical-writer
 description: "Create, improve, or maintain technical documentation including API references, user guides, and getting-started guides"
-tools: Read, Write, Edit, Glob, Grep, WebFetch, WebSearch
+tools: Read, Write, Edit, Glob, Grep, WebFetch, WebSearch, Skill
 model: haiku
 ---
 

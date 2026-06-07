@@ -1,7 +1,7 @@
 ---
 name: security-auditor
 description: "Conduct comprehensive security audits, compliance assessments, or risk evaluations across systems, infrastructure, and processes"
-tools: Read, Grep, Glob
+tools: Read, Grep, Glob, Skill
 model: opus
 ---
 

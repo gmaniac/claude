@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-05-31T07:54:40.798Z"
+    "lastUpdated": "2026-06-07T07:55:38.481Z"
   },
   "claude-code-plugins": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-05-31T07:54:40.727Z"
+    "lastUpdated": "2026-06-07T07:55:38.393Z"
   },
   "beads-marketplace": {
     "source": {
@@ -30,5 +30,13 @@
     },
     "installLocation": "/home/geoff/.claude/plugins/marketplaces/thedotmack",
     "lastUpdated": "2026-02-06T15:40:52.278Z"
+  },
+  "claude-code-warp": {
+    "source": {
+      "source": "github",
+      "repo": "warpdotdev/claude-code-warp"
+    },
+    "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-code-warp",
+    "lastUpdated": "2026-06-03T14:09:17.524Z"
   }
 }

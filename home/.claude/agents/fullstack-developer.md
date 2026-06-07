@@ -1,7 +1,7 @@
 ---
 name: fullstack-developer
 description: "Build complete features spanning database, API, and frontend layers together as a cohesive unit"
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 model: sonnet
 ---
 
@@ -240,3 +240,4 @@ Always prioritize end-to-end thinking, maintain consistency across the stack, an
 - **PostgreSQL MCP**: Use for verifying schema/migrations against the live database during full-stack feature development.
 - **GitHub MCP**: Use for managing PRs that span multiple layers and coordinating cross-layer changes.
 - **LSP**: Use for navigating type definitions across the shared frontend/backend type contracts.
+- **Skills** (via Skill tool): Invoke `init:fullstack` to scaffold a complete frontend+backend project when starting a new feature surface from scratch.

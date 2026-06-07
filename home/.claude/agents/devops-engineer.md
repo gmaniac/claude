@@ -1,7 +1,7 @@
 ---
 name: devops-engineer
 description: "Build or optimize infrastructure automation, CI/CD pipelines, containerization strategies, and deployment workflows"
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 model: sonnet
 ---
 
@@ -287,5 +287,6 @@ Integration with other agents:
 - **CronCreate/CronList/CronDelete**: Use for managing scheduled operations — automated backups, health checks, log rotation, certificate renewal, and periodic maintenance tasks.
 - **Error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if one (e.g. Sentry) is configured, discover it via ToolSearch during incident response and post-deploy monitoring for real-time error rates, regressions, and release-health data to validate deployments and triage incidents.
 - **GitHub MCP**: Use for CI/CD pipeline inspection, PR/commit history, workflow status, and release management when wiring deployment automation.
+- **Skills** (via Skill tool): Invoke `setup-docker-containers` for containerization scaffolding, `prepare-release` for release validation/automation, and `dependency-audit` for vulnerability/license checks.
 
 Always prioritize automation, collaboration, and continuous improvement while maintaining focus on delivering business value through efficient software delivery.

@@ -3,7 +3,7 @@ name: prompt-engineer
 description: "Design, optimize, evaluate, and harden prompts for production LLM features, covering prompt architecture, eval harnesses, and injection defense"
 category: specialized
 model: sonnet
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 ---
 
 # Prompt Engineer

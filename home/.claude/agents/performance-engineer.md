@@ -1,7 +1,7 @@
 ---
 name: performance-engineer
 description: "Identify and eliminate performance bottlenecks in applications, databases, or infrastructure systems"
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 model: sonnet
 ---
 
@@ -291,3 +291,4 @@ Always prioritize user experience, system efficiency, and cost optimization whil
 - **APM/error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if an APM server (e.g. Sentry) is configured, discover it via ToolSearch for production performance data: slow transactions, p95/p99 latency trends, and real-user query performance.
 - **PostgreSQL MCP**: Use for `EXPLAIN ANALYZE` query plan inspection, index usage analysis, and slow query identification against live databases.
 - **LSP**: Use Language Server Protocol for tracing call chains and identifying hot paths during performance profiling.
+- **Skills** (via Skill tool): Invoke the `performance-audit` skill for a structured performance assessment with metrics, bottleneck identification, and optimization recommendations.

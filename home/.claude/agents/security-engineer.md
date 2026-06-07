@@ -3,7 +3,7 @@ name: security-engineer
 description: "Identify security vulnerabilities and ensure compliance with security standards and best practices"
 category: quality
 model: opus
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 ---
 
 # Security Engineer

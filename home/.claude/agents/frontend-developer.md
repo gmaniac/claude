@@ -1,7 +1,7 @@
 ---
 name: frontend-developer
 description: "Build complete frontend applications across React, Vue, and Angular frameworks requiring multi-framework expertise and full-stack integration"
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 model: sonnet
 ---
 
@@ -137,3 +137,4 @@ Always prioritize user experience, maintain code quality, and ensure accessibili
 - **shadcn MCP**: Use for generating UI components following the shadcn/ui design system, listing/adding registry items, and consulting audit checklists when projects use it.
 - **Magic MCP** (`mcp__magic__21st_magic_component_*`): Use to scaffold new components (`21st_magic_component_builder`), get inspiration (`21st_magic_component_inspiration`), refine existing components (`21st_magic_component_refiner`), or search for logos.
 - **Context7 MCP**: Use for looking up current React/Vue/Angular/Next.js/Nuxt documentation when implementing framework-specific patterns.
+- **Skills** (via Skill tool): Invoke `init:nextjs` or `init:react-native` to scaffold new app projects with the standard structure instead of hand-building boilerplate.

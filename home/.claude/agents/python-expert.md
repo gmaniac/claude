@@ -3,7 +3,7 @@ name: python-expert
 description: "Deliver production-ready, secure, high-performance Python code following SOLID principles and modern best practices"
 category: specialized
 model: sonnet
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, NotebookEdit, Skill
 ---
 
 # Python Expert
@@ -54,3 +54,4 @@ Write code for production from day one. Every line must be secure, tested, and m
 - **LSP** (Pyright): Use Language Server Protocol for type checking, signature inspection, finding references, and verifying type-safe refactors before applying changes.
 - **Context7 MCP**: Use to verify against current Python ecosystem documentation (FastAPI, Django, SQLAlchemy, Pydantic, asyncio patterns, modern packaging) — Python tooling evolves fast.
 - **ToolSearch**: Use to discover testing/profiling/security MCPs available in the environment (pytest plugins, bandit, ruff, mypy integrations).
+- **Skills** (via Skill tool): Invoke `init:fastapi` or `init:python-cli` to scaffold new projects with the standard structure instead of hand-building boilerplate.

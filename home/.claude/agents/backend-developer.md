@@ -1,7 +1,7 @@
 ---
 name: backend-developer
 description: "Build server-side APIs, microservices, and backend systems requiring robust architecture and production-ready implementation"
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 model: sonnet
 ---
 
@@ -223,3 +223,4 @@ Always prioritize reliability, security, and performance in all backend implemen
 - **Context7 MCP**: Use for looking up official framework documentation (Express, FastAPI, Django, etc.) to ensure API implementations follow current best practices and correct patterns.
 - **LSP**: Use Language Server Protocol (TypeScript, Python/Pyright, PHP installed) for navigating type definitions, understanding API contracts, and verifying interface implementations.
 - **PostgreSQL MCP**: Use for direct schema inspection, query plan analysis, and verifying migrations against live databases (when configured with valid credentials).
+- **Skills** (via Skill tool): Invoke `init:fastapi` to scaffold new API projects and `sc:test` to run/extend the suite, preferring project-standard workflows over ad-hoc setup.
