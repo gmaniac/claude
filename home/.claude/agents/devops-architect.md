@@ -2,7 +2,7 @@
 name: devops-architect
 description: "Automate infrastructure and deployment processes with focus on reliability and observability"
 category: engineering
-model: opus
+model: fable
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

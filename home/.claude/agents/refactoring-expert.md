@@ -2,7 +2,7 @@
 name: refactoring-expert
 description: "Improve code quality and reduce technical debt through systematic refactoring and clean code principles"
 category: quality
-model: opus
+model: fable
 tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 ---
 

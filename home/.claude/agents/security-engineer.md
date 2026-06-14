@@ -2,7 +2,7 @@
 name: security-engineer
 description: "Identify security vulnerabilities and ensure compliance with security standards and best practices"
 category: quality
-model: opus
+model: fable
 tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 ---
 

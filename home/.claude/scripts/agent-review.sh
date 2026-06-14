@@ -46,7 +46,11 @@ Read every agent file in ~/.claude/agents/ and catalog each agent:
 For each agent, verify the frontmatter is complete and valid:
 - `name`: present and matches filename
 - `description`: present, detailed, includes usage examples
-- `model`: set appropriately (opus for complex/critical, sonnet for standard, haiku for lightweight)
+- `model`: set appropriately by tier — `fable` for the most critical/complex high-blast-radius
+  agents (architects, code-reviewer, security-*, multi-agent-coordinator, refactoring-expert,
+  quality-engineer), `opus` for other complex work, `sonnet` for standard, `haiku` for lightweight.
+  IMPORTANT: `fable` is the current top tier (above opus). NEVER downgrade an agent already set to
+  `model: fable` back to `opus` — treat existing `fable` pins as intentional and preserve them.
 - `tools`: lists the tools the agent actually needs (Read, Write, Edit, Bash, Glob, Grep, etc.)
 
 ## Step 2: Check for Repo Updates

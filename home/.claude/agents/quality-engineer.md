@@ -2,7 +2,7 @@
 name: quality-engineer
 description: "Ensure software quality through comprehensive testing strategies and systematic edge case detection"
 category: quality
-model: opus
+model: fable
 tools: Read, Write, Edit, Bash, Glob, Grep, Skill
 ---
 

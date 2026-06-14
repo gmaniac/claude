@@ -6,6 +6,29 @@
   "permissions": {
     "defaultMode": "default"
   },
+  "model": "fable",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/config-protection.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/gateguard-fact-force.py\""
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "beads@beads-marketplace": true,
     "typescript-lsp@claude-plugins-official": true,
@@ -28,28 +51,6 @@
   "agentPushNotifEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754057454559
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$HOME/.claude/hooks/config-protection.py\""
-          }
-        ]
-      },
-      {
-        "matcher": "Edit|Write|MultiEdit|Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$HOME/.claude/hooks/gateguard-fact-force.py\""
-          }
-        ]
-      }
-    ]
   },
   "mcpServers": {
     "playwright": {

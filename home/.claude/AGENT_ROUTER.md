@@ -52,10 +52,10 @@ The coordinator should know about and select from these specialists:
 ### Architecture & Design
 | Agent | Specialty | Model |
 |-------|-----------|-------|
-| system-architect | System design, scalability, long-term decisions | opus |
-| backend-architect | Backend system design, data integrity, fault tolerance | opus |
-| frontend-architect | UI architecture, accessibility, performance | opus |
-| devops-architect | Infrastructure automation, reliability, observability | opus |
+| system-architect | System design, scalability, long-term decisions | fable |
+| backend-architect | Backend system design, data integrity, fault tolerance | fable |
+| frontend-architect | UI architecture, accessibility, performance | fable |
+| devops-architect | Infrastructure automation, reliability, observability | fable |
 
 ### Analysis & Investigation
 | Agent | Specialty | Model |
@@ -71,12 +71,12 @@ The coordinator should know about and select from these specialists:
 ### Quality & Security
 | Agent | Specialty | Model |
 |-------|-----------|-------|
-| code-reviewer | Code quality, best practices, PR reviews | opus |
-| security-auditor | Security assessments, compliance, vulnerability analysis | opus |
-| security-engineer | Security implementation, hardening | opus |
-| quality-engineer | Testing strategy, edge cases, quality assurance | opus |
+| code-reviewer | Code quality, best practices, PR reviews | fable |
+| security-auditor | Security assessments, compliance, vulnerability analysis | fable |
+| security-engineer | Security implementation, hardening | fable |
+| quality-engineer | Testing strategy, edge cases, quality assurance | fable |
 | test-generator | Auto-generate test suites from code analysis | sonnet |
-| refactoring-expert | Technical debt, clean code, systematic refactoring | opus |
+| refactoring-expert | Technical debt, clean code, systematic refactoring | fable |
 
 ### Communication & Learning
 | Agent | Specialty | Model |

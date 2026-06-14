@@ -2,7 +2,7 @@
 name: backend-architect
 description: "Design reliable backend systems with focus on data integrity, security, and fault tolerance"
 category: engineering
-model: opus
+model: fable
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
