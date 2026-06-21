@@ -126,6 +126,7 @@ MCP capabilities to surface in agent prompts when relevant:
 - Context7: current library/framework documentation (prefer over web search)
 - GitHub: PR diffs, CI status, dependency changes, branch protection
 - PostgreSQL: live schema inspection, query plans, RLS validation
+- SigNoz/Sentry: observability — traces, metrics, logs, dashboards, alerts, error tracking, release health (surface for performance-engineer, devops-engineer/architect, debugger, root-cause-analyst, security-engineer)
 - shadcn/Magic: UI component generation and registry browsing
 - Memory: cross-session state persistence
 - Sequential-thinking: multi-step reasoning chains

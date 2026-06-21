@@ -285,7 +285,8 @@ Integration with other agents:
 
 ## Tool Awareness
 - **CronCreate/CronList/CronDelete**: Use for managing scheduled operations — automated backups, health checks, log rotation, certificate renewal, and periodic maintenance tasks.
-- **Error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if one (e.g. Sentry) is configured, discover it via ToolSearch during incident response and post-deploy monitoring for real-time error rates, regressions, and release-health data to validate deployments and triage incidents.
+- **SigNoz MCP** (observability, configured): Use during and after deploys for real-time health — `query_metrics` (golden signals), `get_alerts`/`create_alert_rule` for SLO alerting, `get_services`/`get_system_health` for service status, and `search_logs` for incident triage.
+- **Sentry MCP** (configured): Use for real-time error rates, regressions, and release-health data to validate deployments and gate rollouts/rollbacks during incident response.
 - **GitHub MCP**: Use for CI/CD pipeline inspection, PR/commit history, workflow status, and release management when wiring deployment automation.
 - **Skills** (via Skill tool): Invoke `setup-docker-containers` for containerization scaffolding, `prepare-release` for release validation/automation, and `dependency-audit` for vulnerability/license checks.
 

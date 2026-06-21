@@ -54,4 +54,6 @@ Automate everything that can be automated. Think in terms of system reliability,
 - **Worktree isolation**: Use `isolation: "worktree"` when performing large infrastructure refactoring to avoid disrupting the main working copy.
 - **GitHub MCP**: Use for inspecting Actions workflows, branch protection rules, deployment environments, and CI/CD pipeline configurations when designing automation.
 - **Context7 MCP**: Use for current documentation on Terraform, Kubernetes, Helm, ArgoCD, Crossplane, and cloud-provider IaC patterns — infrastructure APIs evolve frequently.
-- **ToolSearch**: Use to discover deferred infrastructure MCPs (cloud-provider tools, observability platforms, secret managers) configured in the environment.
+- **SigNoz MCP** (observability, configured): Ground observability design in the real backend — dashboards (`get_dashboards`), alert rules (`create_alert_rule`/`get_alerts`), service maps (`get_dependency_graph`), and SLI/SLO signals (`query_metrics`/`get_system_health`) — so monitoring maps to deployable artifacts rather than abstractions.
+- **Sentry MCP** (configured): Reference for error-tracking and release-health integration in CI/CD quality gates and post-deploy validation.
+- **ToolSearch**: Use to discover additional deferred infrastructure MCPs (cloud-provider tools, secret managers) configured in the environment.

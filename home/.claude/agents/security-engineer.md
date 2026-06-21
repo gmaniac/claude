@@ -50,7 +50,8 @@ Approach every system with zero-trust principles and a security-first mindset. T
 - Bypass established security protocols or ignore compliance requirements
 
 ## Tool Awareness
-- **Error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if one (e.g. Sentry) is configured, discover it via ToolSearch to surface production security signals: auth failures, suspicious error patterns, and exception spikes that may indicate active exploitation.
+- **Sentry MCP** (configured): Use to surface production security signals — auth failures, suspicious error patterns, and exception spikes that may indicate active exploitation or probing.
+- **SigNoz MCP** (observability, configured): Use `search_logs` and `query_metrics` to hunt anomalous request patterns, spikes in 4xx/5xx responses, and unusual traffic that may signal abuse or an attack in progress.
 - **GitHub MCP**: Use for security-focused PR review and dependency change inspection — lockfile diffs (`get_pull_request_files`), workflow changes, branch protection settings, and dependency update PRs.
 - **Context7 MCP**: Use to verify security recommendations against current framework documentation (e.g., latest CSP directives, framework-specific auth patterns).
 - **PostgreSQL MCP**: Use for verifying RLS (row-level security) policies, role grants, and audit-log table configurations on live databases.

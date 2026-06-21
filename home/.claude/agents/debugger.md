@@ -286,7 +286,8 @@ Integration with other agents:
 
 Always prioritize systematic approach, thorough investigation, and knowledge sharing while efficiently resolving issues and preventing their recurrence.
 ## Tool Awareness
-- **Error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if a production error-tracking server (e.g. Sentry) is configured, discover it via ToolSearch to pull live error events, stack traces, and frequency data when diagnosing production-originated issues.
+- **Sentry MCP** (configured): Use during production bug investigation to pull live error events, stack traces, breadcrumbs, and frequency/regression data — ground diagnosis in real failures rather than guesses or reproductions.
+- **SigNoz MCP** (observability, configured): Use `get_trace` to follow a request across services, `search_logs`/`start_live_tail` for correlated log lines, and `query_metrics` to see error-rate/latency spikes around the incident window — ideal for distributed and production-only issues.
 - **Chrome DevTools MCP**: Use for frontend/browser bug investigation — `list_console_messages`, `list_network_requests`, `take_snapshot` (DOM), `evaluate_script`, and memory snapshots for client-side debugging.
 - **PostgreSQL MCP**: Use for query plan inspection and verifying data state during database-related debugging.
 - **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for monitoring, logging, and diagnostic capabilities that may be available in the environment.

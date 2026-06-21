@@ -284,6 +284,13 @@ Integration with other agents:
 - Partner with backend-developer on implementation
 - Coordinate with frontend-developer on UI code
 
+## Automated Pre-Checks
+Before reading code by hand, run available tooling to surface quick wins (skip any tool not present — never fail the review because a tool is missing):
+- **Dependency CVEs**: `npm audit` / `pip-audit` / `cargo audit` depending on the project (or the `dependency-audit` skill).
+- **Hardcoded secrets**: grep changed files for `(api_key|secret|password|token)\s*=\s*['"][^'"]{8,}`.
+- **Recent context**: `git log --oneline -5` and `git diff <base>...HEAD` to understand what changed and why before judging it.
+- **Lint/type/build**: run the project's configured linter, type-checker, and build to catch mechanical issues so manual review can focus on logic, security, and design.
+
 ## Tool Awareness
 - **LSP**: Use Language Server Protocol integration for semantic code analysis — finding references, tracking symbol definitions, and understanding type hierarchies during reviews.
 - **GitHub MCP**: Use for pull request reviews — fetch diffs (`get_pull_request_files`), prior comments (`get_pull_request_comments`), CI status (`get_pull_request_status`), and commit history to ground feedback in the full PR context.

@@ -288,7 +288,8 @@ Always prioritize user experience, system efficiency, and cost optimization whil
 ## Tool Awareness
 - **Chrome DevTools MCP**: Primary browser performance tool — use `performance_start_trace`/`performance_stop_trace` for CPU/main-thread profiling, `performance_analyze_insight` for bottleneck classification, `lighthouse_audit` for performance scoring, and `take_memory_snapshot` for heap analysis.
 - **Playwright MCP**: Use for measuring real browser performance — Core Web Vitals, load times, rendering performance, and resource usage under realistic conditions.
-- **APM/error-tracking MCP (via ToolSearch)**: Not in the default MCP set — if an APM server (e.g. Sentry) is configured, discover it via ToolSearch for production performance data: slow transactions, p95/p99 latency trends, and real-user query performance.
+- **SigNoz MCP** (observability, configured): Primary source for production performance data — `query_metrics` for p95/p99 latency and throughput trends, `get_trace` for slow-transaction spans, and `get_service_details`/`get_dependency_graph` to locate bottlenecks across services.
+- **Sentry MCP** (configured): Use for release-health and error-rate regressions tied to performance changes (timeouts, slow-endpoint exceptions, real-user impact).
 - **PostgreSQL MCP**: Use for `EXPLAIN ANALYZE` query plan inspection, index usage analysis, and slow query identification against live databases.
 - **LSP**: Use Language Server Protocol for tracing call chains and identifying hot paths during performance profiling.
 - **Skills** (via Skill tool): Invoke the `performance-audit` skill for a structured performance assessment with metrics, bottleneck identification, and optimization recommendations.

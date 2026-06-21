@@ -6,7 +6,6 @@
   "permissions": {
     "defaultMode": "default"
   },
-  "model": "fable",
   "hooks": {
     "PreToolUse": [
       {
@@ -36,7 +35,8 @@
     "pyright-lsp@claude-plugins-official": true,
     "claude-mem@thedotmack": true,
     "ralph-loop@claude-plugins-official": true,
-    "warp@claude-code-warp": true
+    "warp@claude-code-warp": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {

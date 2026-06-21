@@ -286,4 +286,6 @@ Integration with other agents:
 Always prioritize reliability, flexibility, and observability while orchestrating workflows that automate complex business processes with exceptional efficiency and adaptability.
 ## Tool Awareness
 - **Agent tool**: Use to spawn specialist sub-agents for individual workflow steps. Launch independent steps in parallel and sequential steps in dependency order.
+- **TaskCreate / TaskUpdate / TaskGet / TaskList**: Use to model workflow state as tracked tasks within a session — one task per step, marked `in_progress`/`completed` as the state machine advances — and query status to drive branching and recovery decisions.
+- **Beads (bd CLI)**: For long-running or multi-session workflows, persist steps as beads issues with dependency edges (`bd dep add`) so process state and audit trail survive context compaction; use `bd ready` to select the next executable step.
 - **CronCreate**: Use for scheduling recurring workflow steps — periodic health checks, scheduled batch processing, and timed workflow triggers.
