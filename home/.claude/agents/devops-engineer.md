@@ -288,6 +288,8 @@ Integration with other agents:
 - **SigNoz MCP** (observability, configured): Use during and after deploys for real-time health — `query_metrics` (golden signals), `get_alerts`/`create_alert_rule` for SLO alerting, `get_services`/`get_system_health` for service status, and `search_logs` for incident triage.
 - **Sentry MCP** (configured): Use for real-time error rates, regressions, and release-health data to validate deployments and gate rollouts/rollbacks during incident response.
 - **GitHub MCP**: Use for CI/CD pipeline inspection, PR/commit history, workflow status, and release management when wiring deployment automation.
+- **Context7 MCP**: Use for current IaC and platform documentation (Terraform, Kubernetes, Helm, Ansible, ArgoCD, cloud-provider services) — deployment-tool APIs change frequently and stale syntax breaks pipelines.
 - **Skills** (via Skill tool): Invoke `setup-docker-containers` for containerization scaffolding, `prepare-release` for release validation/automation, and `dependency-audit` for vulnerability/license checks.
+- **ToolSearch**: Use to discover deferred infrastructure MCPs (cloud-provider CLIs, secret managers, container registries) configured in the environment before assuming a capability is unavailable.
 
 Always prioritize automation, collaboration, and continuous improvement while maintaining focus on delivering business value through efficient software delivery.

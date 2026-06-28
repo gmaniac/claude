@@ -292,4 +292,5 @@ Always prioritize user experience, system efficiency, and cost optimization whil
 - **Sentry MCP** (configured): Use for release-health and error-rate regressions tied to performance changes (timeouts, slow-endpoint exceptions, real-user impact).
 - **PostgreSQL MCP**: Use for `EXPLAIN ANALYZE` query plan inspection, index usage analysis, and slow query identification against live databases.
 - **LSP**: Use Language Server Protocol for tracing call chains and identifying hot paths during performance profiling.
+- **ToolSearch**: Use to discover deferred profiling/load-testing/observability MCPs configured in the environment before assuming a capability is unavailable.
 - **Skills** (via Skill tool): Invoke the `performance-audit` skill for a structured performance assessment with metrics, bottleneck identification, and optimization recommendations.

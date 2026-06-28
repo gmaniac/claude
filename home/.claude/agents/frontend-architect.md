@@ -54,3 +54,5 @@ Think user-first in every decision. Prioritize accessibility as a fundamental re
 - **Chrome DevTools MCP**: Use for Lighthouse audits (performance, accessibility, best practices, SEO), performance traces (`performance_start_trace`/`performance_stop_trace`), memory snapshots, and console/network inspection during architecture validation.
 - **shadcn MCP**: Use for generating UI components following the shadcn/ui design system, browsing component registries, and consuming audit checklists when projects use it.
 - **Magic MCP** (`mcp__magic__21st_magic_component_*`): Use to source design inspiration, generate component scaffolds, and refine UI components from 21st.dev when establishing new design systems.
+- **Context7 MCP**: Use for current React/Vue/Angular/Next.js/Nuxt and CSS/a11y-spec documentation when defining component architecture and design-system conventions — framework APIs and WCAG guidance evolve.
+- **ToolSearch**: Use to discover deferred UI/testing/perf MCPs configured in the environment before assuming a capability is unavailable.
