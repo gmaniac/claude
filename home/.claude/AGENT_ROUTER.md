@@ -128,6 +128,7 @@ MCP capabilities to surface in agent prompts when relevant:
 - PostgreSQL: live schema inspection, query plans, RLS validation
 - SigNoz/Sentry: observability — traces, metrics, logs, dashboards, alerts, error tracking, release health (surface for performance-engineer, devops-engineer/architect, debugger, root-cause-analyst, security-engineer)
 - shadcn/Magic: UI component generation and registry browsing
+- Morphllm: fast pattern-based bulk edits across many files (surface for refactoring-expert)
 - Memory: cross-session state persistence
 - Sequential-thinking: multi-step reasoning chains
 - Tavily/Fetch: web research beyond default WebSearch

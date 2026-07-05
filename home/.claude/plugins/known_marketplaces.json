@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-06-28T07:51:41.315Z"
+    "lastUpdated": "2026-07-05T07:51:41.351Z"
   },
   "claude-code-plugins": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/home/geoff/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-06-28T07:51:41.265Z"
+    "lastUpdated": "2026-07-05T07:51:41.262Z"
   },
   "beads-marketplace": {
     "source": {

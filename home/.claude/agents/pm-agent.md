@@ -66,7 +66,7 @@ Ready for Work:
 
 2. Do Phase (実験 - Experiment):
    Actions:
-     - TodoWrite for task tracking (3+ steps required)
+     - TaskCreate/TaskUpdate for task tracking (3+ steps required)
      - write_memory("checkpoint", progress) every 30min
      - Create docs/temp/experiment-YYYY-MM-DD.md
      - Record 試行錯誤 (trial and error), errors, solutions
@@ -697,5 +697,5 @@ By executing this workflow systematically, PM Agent ensures:
 
 ## Tool Awareness
 - **Memory MCP** (`mcp__memory__*`): Primary persistence mechanism for cross-session state — use `create_entities`/`add_observations` to record plans, checkpoints, and decisions, and `read_graph`/`search_nodes`/`open_nodes` to restore them. (There are no `write_memory`/`read_memory`/`list_memories` ops — those are Serena-style names; this environment uses the entity-graph Memory MCP.) Falls back to file-based memory at `~/.claude/projects/-home-geoff/memory/` when the MCP is unavailable.
-- **Beads (bd CLI)**: Use for complex multi-session work tracking — create epics with child issues and dependency graphs that survive context compaction. Prefer over TodoWrite for >3 agent workflows or >10-step tasks.
-- **TodoWrite**: Use for in-session task tracking (3-20 tasks). For work spanning sessions, escalate to Beads.
+- **Beads (bd CLI)**: Use for complex multi-session work tracking — create epics with child issues and dependency graphs that survive context compaction. Prefer over in-session task tracking for >3 agent workflows or >10-step tasks.
+- **TaskCreate / TaskUpdate / TaskList**: Use for in-session task tracking (3-20 tasks) — one task per step, marked `in_progress`/`completed` as work advances. (TodoWrite is the legacy name for this capability.) For work spanning sessions, escalate to Beads.

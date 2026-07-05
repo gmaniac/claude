@@ -6,6 +6,7 @@
   "permissions": {
     "defaultMode": "default"
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -46,6 +47,7 @@
       }
     }
   },
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
@@ -59,6 +61,5 @@
         "@playwright/mcp@latest"
       ]
     }
-  },
-  "tui": "fullscreen"
+  }
 }
