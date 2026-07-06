@@ -62,4 +62,4 @@ Be specific and actionable - provide actual test code snippets following the pro
 - **Chrome DevTools MCP**: Use to capture realistic test fixtures (network responses, DOM snapshots) when generating tests that need to mirror real-world browser behavior.
 - **LSP**: Use Language Server Protocol for code analysis, understanding function signatures, and test target discovery.
 - **Context7 MCP**: Use to verify testing-framework idioms (Jest, Vitest, Pytest, Go testing) match current best practices for the project's framework version.
-- **Skills** (via Skill tool): Invoke `generate-tests` / `write-tests` to scaffold full suites and `test-coverage` to analyze and close gaps — prefer these project-standard workflows over hand-rolling when available.
+- **Skills** (via Skill tool): Invoke `generate-tests` to scaffold full suites and `test-coverage` to analyze and close gaps — prefer these project-standard workflows over hand-rolling when available.

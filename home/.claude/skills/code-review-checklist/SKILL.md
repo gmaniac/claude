@@ -427,10 +427,10 @@ This is great because [explain why]
 
 ## Related Skills
 
-- `@requesting-code-review` - Prepare code for review
-- `@receiving-code-review` - Handle review feedback
-- `@systematic-debugging` - Debug issues found in review
-- `@test-driven-development` - Ensure code has tests
+- `superpowers:requesting-code-review` - Prepare code for review
+- `superpowers:receiving-code-review` - Handle review feedback
+- `superpowers:systematic-debugging` - Debug issues found in review
+- `superpowers:test-driven-development` - Ensure code has tests
 
 ## Additional Resources
 

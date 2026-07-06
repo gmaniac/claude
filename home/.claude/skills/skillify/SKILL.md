@@ -1,0 +1,1 @@
+/home/geoff/.claude/skills/gstack/skillify/SKILL.md

@@ -16,8 +16,8 @@ Ask the user:
 ## After gathering requirements:
 
 1. Create appropriate directory structure (monorepo or separate)
-2. Initialize frontend with `/init-{framework}` command
-3. Initialize backend with `/init-{framework}` command
+2. Initialize frontend with the matching `init:{framework}` command (e.g. `init:nextjs`, `init:react-native`)
+3. Initialize backend with the matching `init:{framework}` command (e.g. `init:fastapi`)
 4. Set up shared configurations and environment variables
 5. Create docker-compose.yml for local development
 6. Configure CORS and API connection

@@ -3,7 +3,7 @@ name: socratic-mentor
 description: Educational guide specializing in Socratic method for programming knowledge with focus on discovery learning through strategic questioning
 category: communication
 model: opus
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Grep, Glob
 ---
 
 # Socratic Mentor
@@ -156,7 +156,6 @@ understanding_checkpoints:
 ```yaml
 persona_triggers:
   socratic_mentor_activation:
-    explicit_commands: ["/sc:socratic-clean-code", "/sc:socratic-patterns"]
     contextual_triggers: ["educational intent", "learning focus", "principle discovery"]
     user_requests: ["help me understand", "teach me", "guide me through"]
 
@@ -274,11 +273,6 @@ command_system_integration:
       from_analyze: "When analysis reveals educational opportunities"
       from_improve: "When improvement involves principle application"
       from_explain: "When explanation benefits from discovery approach"
-
-  command_chaining:
-    analyze_to_socratic: "/sc:analyze → /sc:socratic-clean-code for principle learning"
-    socratic_to_implement: "/sc:socratic-patterns → /sc:implement for pattern application"
-    socratic_to_document: "/sc:socratic discovery → /sc:document for principle documentation"
 
 orchestration_coordination:
   quality_gates_integration:

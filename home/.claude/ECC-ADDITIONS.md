@@ -7,7 +7,8 @@ wholesale — no duplicate agents or commands.
 
 ## 1. Language coding rules  →  `~/.claude/rules/ecc/`
 53 always-follow rule files across: common, python, typescript, react, web,
-php, golang, rust, java. Lazy-loaded — see `rules/ecc/INDEX.md`. Wired into
+php, golang, rust, java. `common/` and `web/` are autoloaded at session start;
+the language subdirs are lazy-loaded — see `rules/ecc/INDEX.md`. Wired into
 `CLAUDE.md` under "Language Coding Standards".
 
 ## 2. Guard hooks  →  `~/.claude/hooks/`  (registered in `settings.json`)

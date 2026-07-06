@@ -1,43 +1,38 @@
-# AGENT_ROUTER.md - Auto-Agent Routing, Loop & Beads Integration
+# AGENT_ROUTER.md - Agent Routing, Workflows, Loops & Beads
 
 ## Core Directive
 
-**ALWAYS route work through multi-agent-coordinator.** Do NOT do substantive work yourself when agents exist for it. The coordinator analyzes the request, selects the right specialist agent(s), manages dependencies between them, and handles failures.
+Route substantive multi-domain work through **multi-agent-coordinator** (it has the Agent tool and spawns specialists). Handle directly, no coordinator:
+- Simple questions, single-file edits, trivial fixes
+- Conversational back-and-forth / brainstorming / clarifying questions
+- Work that maps cleanly onto ONE specialist — launch that agent directly
+- Work covered by a Workflow Selection row below — use that workflow
 
-The only exceptions where you handle directly (no coordinator):
-- Simple questions answerable in 1-2 sentences
-- Single-file edits or trivial fixes
-- Conversational back-and-forth / brainstorming
-- Clarifying questions before work begins
+## Workflow Selection
 
-Everything else goes through the coordinator.
+Before routing to agents, check whether a purpose-built workflow already covers the request:
+
+| Situation | Use |
+|---|---|
+| Vague idea → requirements | superpowers `brainstorming` skill |
+| Feature planning | Plan mode or superpowers `writing-plans` |
+| Executing a reviewed plan | superpowers `subagent-driven-development` / `executing-plans` |
+| TDD enforcement | superpowers `test-driven-development` |
+| Debugging | superpowers `systematic-debugging`; debugger / root-cause-analyst agents; gstack `/investigate` |
+| Spec → tracked issues → autonomous build | `ideate-and-build` / `specs-to-ralph` (beads + ralph CLI) |
+| Plan review (product/eng/design) | gstack `/plan-ceo-review`, `/plan-eng-review`, `/plan-design-review`, or `/autoplan` |
+| Branch review / ship / browser QA / security audit | gstack `/review`, `/ship`, `/qa`, `/cso` |
+| UI look-and-feel work | frontend-design plugin + `rules/ecc/web/*` |
 
 ## Routing Algorithm
 
-```
-1. User makes a request
-2. Is it trivial? (simple question, 1-line fix, conversation)
-   YES -> Handle directly, no agent needed
-   NO  -> Continue to step 3
-3. Assess complexity:
-   - MODERATE (3-10 steps, single domain): coordinator only
-   - COMPLEX (10+ steps, multi-domain, multi-agent): coordinator + beads tracking
-4. Launch multi-agent-coordinator with:
-   - The user's full request
-   - Context: available agents list (below)
-   - Instruction: select and launch appropriate specialist(s)
-   - Instruction: use parallel agents when tasks are independent
-   - Instruction: use sequential agents when tasks depend on each other
-   - If COMPLEX: instruction to create beads epic and child issues (see Beads Integration)
-5. Set up /loop monitoring based on task type (see Loop Rules below)
-6. Coordinator returns results -> present to user
-7. Apply quality gates (see below)
-8. If beads were created: update issue statuses and close completed work
-```
+1. Trivial → handle directly.
+2. Matches a Workflow Selection row → use that workflow.
+3. MODERATE (3-10 steps, single domain, 1-2 agents) → launch the right specialist(s) directly; parallel when independent, sequential when dependent.
+4. COMPLEX (10+ steps, multi-domain, 3+ agents) → multi-agent-coordinator + beads tracking.
+5. Verify agent output before presenting (Quality Gates below).
 
-## Available Agents for Coordinator
-
-The coordinator should know about and select from these specialists:
+## Agent Roster
 
 ### Development
 | Agent | Specialty | Model |
@@ -53,7 +48,7 @@ The coordinator should know about and select from these specialists:
 | Agent | Specialty | Model |
 |-------|-----------|-------|
 | system-architect | System design, scalability, long-term decisions | fable |
-| backend-architect | Backend system design, data integrity, fault tolerance | fable |
+| backend-architect | Backend design, data integrity, fault tolerance | fable |
 | frontend-architect | UI architecture, accessibility, performance | fable |
 | devops-architect | Infrastructure automation, reliability, observability | fable |
 
@@ -62,8 +57,8 @@ The coordinator should know about and select from these specialists:
 |-------|-----------|-------|
 | debugger | Bug diagnosis, root cause, stack traces | sonnet |
 | root-cause-analyst | Evidence-based investigation, hypothesis testing | sonnet |
-| performance-engineer | Bottleneck identification, optimization, load testing | sonnet |
-| deep-research-agent | Comprehensive research, multi-source exploration | opus |
+| performance-engineer | Bottlenecks, optimization, load testing | sonnet |
+| deep-research-agent | Comprehensive multi-source research | opus |
 | requirements-analyst | Requirements discovery, specifications | opus |
 | business-panel-experts | Business strategy, multi-framework analysis | opus |
 | data-engineer | Data pipelines, ETL, data quality | sonnet |
@@ -72,11 +67,11 @@ The coordinator should know about and select from these specialists:
 | Agent | Specialty | Model |
 |-------|-----------|-------|
 | code-reviewer | Code quality, best practices, PR reviews | fable |
-| security-auditor | Security assessments, compliance, vulnerability analysis | fable |
+| security-auditor | Security assessments, compliance, vulnerabilities | fable |
 | security-engineer | Security implementation, hardening | fable |
-| quality-engineer | Testing strategy, edge cases, quality assurance | fable |
-| test-generator | Auto-generate test suites from code analysis | sonnet |
-| refactoring-expert | Technical debt, clean code, systematic refactoring | fable |
+| quality-engineer | Testing strategy, edge cases, QA | fable |
+| test-generator | Auto-generate test suites | sonnet |
+| refactoring-expert | Technical debt, clean code, refactoring | fable |
 
 ### Communication & Learning
 | Agent | Specialty | Model |
@@ -86,253 +81,66 @@ The coordinator should know about and select from these specialists:
 | socratic-mentor | Discovery learning through questioning | opus |
 | pm-agent | Implementation documentation, knowledge base | opus |
 
-### Orchestration (coordinator's helpers)
+### Orchestration
 | Agent | Specialty | Model |
 |-------|-----------|-------|
-| task-distributor | Workload balancing, queue management, SLA tracking | haiku |
-| workflow-orchestrator | Process flows, state machines, saga patterns | opus |
+| multi-agent-coordinator | Cross-agent coordination, dependency management | fable |
+| task-distributor | Workload balancing for 4+ parallel agents | haiku |
+| workflow-orchestrator | Complex process flows, state machines | opus |
 
-## Coordinator Instructions
+## Coordinator Guidance
 
-When launching multi-agent-coordinator, include this context:
-
-```
-You are coordinating work across 29 specialist agents (excluding self). Your job:
-
-1. ANALYZE the request - what domains does it touch?
-2. SELECT the right agent(s) from the available roster
-3. ASSESS complexity - if 3+ agents or 10+ steps, use beads for tracking
-4. DECIDE execution strategy:
-   - Single agent: simple domain-specific task
-   - Parallel agents: independent tasks across domains
-   - Sequential agents: tasks with dependencies (design before build, build before test)
-   - Use task-distributor for 4+ parallel agents
-   - Use workflow-orchestrator for complex multi-step processes
-5. If using beads: create epic + child issues with dependencies BEFORE launching agents
-6. LAUNCH agents and aggregate their results
-7. If using beads: update issue statuses as agents complete
-8. VALIDATE output quality before returning
-
-Agent selection principles:
-- Prefer specialists over generalists
-- Use architect agents for design, developer agents for implementation
-- Always pair implementation with testing (suggest test-generator after code)
-- Always consider security (suggest security-auditor for auth/payment/data)
-- Use opus-model agents for critical/complex work, sonnet for standard implementation
-- Use isolation: "worktree" for agents performing risky multi-file changes (refactoring, large edits)
-
-MCP capabilities to surface in agent prompts when relevant:
-- Playwright/Chrome DevTools: browser automation, perf traces, Lighthouse audits
-- Context7: current library/framework documentation (prefer over web search)
-- GitHub: PR diffs, CI status, dependency changes, branch protection
-- PostgreSQL: live schema inspection, query plans, RLS validation
-- SigNoz/Sentry: observability — traces, metrics, logs, dashboards, alerts, error tracking, release health (surface for performance-engineer, devops-engineer/architect, debugger, root-cause-analyst, security-engineer)
-- shadcn/Magic: UI component generation and registry browsing
-- Morphllm: fast pattern-based bulk edits across many files (surface for refactoring-expert)
-- Memory: cross-session state persistence
-- Sequential-thinking: multi-step reasoning chains
-- Tavily/Fetch: web research beyond default WebSearch
-
-Skills to leverage (via the Skill tool — 14 specialists are now Skill-enabled):
-- Testing: generate-tests, write-tests, test-coverage (test-generator, quality-engineer)
-- Review: code-review, code-review-checklist (code-reviewer)
-- Security: security-audit, security-best-practices, dependency-audit (security-auditor, security-engineer)
-- Refactor/cleanup: refactor-code, simplify, sc:cleanup (refactoring-expert)
-- Performance: performance-audit (performance-engineer)
-- Docs: generate-api-documentation (technical-writer)
-- Scaffolding: init:fastapi, init:nextjs, init:react-native, init:fullstack, init:python-cli (developers, python-expert)
-- DevOps: setup-docker-containers, prepare-release (devops-engineer)
-- Prefer invoking a project-standard skill over reimplementing the workflow ad hoc.
-```
+When launching multi-agent-coordinator, instruct it to:
+1. Analyze domains → select specialists → parallel for independent work, sequential for dependencies; task-distributor for 4+ parallel agents; workflow-orchestrator for complex multi-step processes.
+2. If 3+ agents, 10+ steps, or multi-session: create a beads epic + child issues with dependencies BEFORE launching agents; update statuses as agents complete; `bd sync` at session end.
+3. Prefer specialists over generalists; architects design, developers implement; pair implementation with test-generator; add security-auditor for auth/payment/user-data work.
+4. Use `isolation: "worktree"` for agents making risky multi-file changes.
+5. Surface MCP capabilities in agent prompts when relevant: Playwright/Chrome DevTools (browser, perf traces), Context7 (library docs — prefer over web search), GitHub, PostgreSQL, SigNoz/Sentry (observability), shadcn/Magic (UI components), Morphllm (bulk edits), Memory, Sequential-thinking, Tavily/Fetch (web research).
+6. Prefer project-standard skills over ad-hoc reimplementation: generate-tests, test-coverage, code-review, security-audit, dependency-audit, refactor-code, performance-audit, generate-api-documentation, init:*, setup-docker-containers, prepare-release.
 
 ## Beads Integration
 
-### Complexity Threshold
-
-| Session Type | Task Management |
+| Session type | Tracking |
 |---|---|
-| Trivial (quick fix, question, 1-2 steps) | Direct work, no tracking |
-| Moderate (3-10 steps, single domain, 1-2 agents) | Coordinator manages, no beads |
-| Complex (10+ steps, multi-domain, 3+ agents) | Beads epic + child issues |
-| Multi-session project (spans days/weeks) | Beads with full dependency graph |
+| Trivial (1-2 steps) | none |
+| Moderate (3-10 steps, 1-2 agents) | TodoWrite / coordinator manages |
+| Complex (10+ steps, 3+ agents, sequential deps) | beads epic + child issues |
+| Multi-session (days/weeks, survives compaction) | beads with full dependency graph |
 
-### When Coordinator Activates Beads
-
-The coordinator creates beads issues when ANY of these are true:
-- 3 or more specialist agents will be launched
-- Work has sequential dependencies (agent B needs agent A's output)
-- Task will likely survive context compaction (long session)
-- User explicitly asks to track the work
-- Work spans multiple directories or projects
-
-### Beads Workflow for Complex Tasks
-
-**Step 1: Create Epic**
-```bash
-bd create "Build user authentication system" -t epic -p 1 --json
-```
-
-**Step 2: Create Child Issues for Each Agent's Work**
-```bash
-# Design phase
-bd create "Design auth architecture" -t task -p 1 --json
-bd dep add <design-id> <epic-id> --type parent-child
-
-# Implementation phase (parallel)
-bd create "Implement auth API endpoints" -t task -p 1 --json
-bd create "Implement auth UI components" -t task -p 1 --json
-bd dep add <api-id> <epic-id> --type parent-child
-bd dep add <ui-id> <epic-id> --type parent-child
-
-# Dependencies: implementation blocks on design
-bd dep add <api-id> <design-id> --type blocks
-bd dep add <ui-id> <design-id> --type blocks
-
-# Testing phase
-bd create "Generate auth test suite" -t task -p 1 --json
-bd dep add <test-id> <epic-id> --type parent-child
-bd dep add <test-id> <api-id> --type blocks
-bd dep add <test-id> <ui-id> --type blocks
-
-# Security audit
-bd create "Security audit auth system" -t task -p 1 --json
-bd dep add <audit-id> <epic-id> --type parent-child
-bd dep add <audit-id> <test-id> --type blocks
-```
-
-**Step 3: Track Agent Progress**
-As each agent completes, update the corresponding issue:
-```bash
-bd update <id> --status in_progress   # When agent starts
-bd close <id> --reason "Completed"     # When agent finishes
-```
-
-**Step 4: Handle Discoveries**
-When an agent discovers additional work needed:
-```bash
-bd create "Fix CORS config for auth endpoints" -t bug -p 1 --json
-bd dep add <new-id> <parent-id> --type discovered-from
-```
-
-**Step 5: Session End**
-Before ending a complex session:
-```bash
-bd sync  # Flush all changes to git
-```
-
-### Why Beads Over TodoWrite for Complex Tasks
-
-| Feature | TodoWrite | Beads |
-|---|---|---|
-| Survives context compaction | No | Yes (git-backed) |
-| Dependency tracking | No (flat list) | Yes (blocks, parent-child) |
-| Post-session visibility | Gone | Persistent in .beads/ |
-| Cross-session resume | No | Yes (bd ready shows what's next) |
-| Multi-agent coordination | No | Yes (each agent = issue) |
-| Audit trail | No | Yes (git history) |
-
-### Beads Session Labels
-
-To keep sessions organized, label issues with the session context:
-```bash
-bd label create "session" --color blue    # One-time setup
-bd create "Task name" -t task -p 1 -l session --json
-```
-
-For multi-session projects, use descriptive labels:
-```bash
-bd label create "auth-system" --color green
-bd create "Task name" -t task -p 1 -l auth-system --json
-```
+Core flow: `bd create "Epic" -t epic -p 1 --json` → child issues with `bd dep add <child> <epic> --type parent-child` and `--type blocks` for ordering → `bd update <id> --status in_progress` when an agent starts → `bd close <id>` when it finishes → discovered work gets `--type discovered-from` → `bd sync` before session end. Resume via `bd ready --json` + `bd list --status in_progress --json`. Beads beats TodoWrite for complex work because it survives compaction, tracks dependencies, and resumes across sessions.
 
 ## Loop Integration Rules
 
-### When to Auto-Loop
-After launching the coordinator, set up a `/loop` based on task type:
+### Default: no polling loop
+Background agents launched via the Agent tool are harness-tracked: they fire a task-notification automatically when they finish or fail. Do NOT set up a /loop to "check agent progress" — polling adds no information, re-sends the full conversation each poll, and clutters the transcript. Wait for the notification.
 
-| Task Type | Loop Interval | Check Prompt |
-|-----------|--------------|--------------|
-| Implementation (build, code, deploy) | 3m | Check agent progress. Report files changed, errors, completion %. Update beads issue status if tracking. |
-| Analysis (audit, review, research) | 5m | Check analysis progress. Report findings, areas remaining. Update beads if tracking. |
-| Monitoring (deploys, migrations) | 2m | Check status. Report stage, health, rollback triggers. |
-| Testing (test gen, coverage) | 3m | Check test progress. Report pass/fail, coverage %, blockers. Update beads if tracking. |
+### Fallback wakeup (long runs only)
+For runs expected to exceed ~30 minutes, set at most ONE long fallback wakeup (e.g. /loop 30m or a single ScheduleWakeup) purely as a liveness check in case a notification is missed. On wakeup: check status once, report, cancel the loop if work completed.
 
-### Loop + Beads Integration
-When both loop and beads are active, the loop check should:
-1. Check agent task progress
-2. Run `bd list --status in_progress --json` to show active issues
-3. Update issue status if an agent has completed
-4. Run `bd ready --json` to show what's unblocked next
-5. Report blocked issues if agents are waiting on dependencies
+### Short-interval polling: external state only
+Fixed 2-5m polls are justified ONLY for state outside the harness that cannot push notifications: CI pipelines, deploys, migrations, remote queues, third-party job APIs, canary metrics. Use the longest interval that meets the reaction-time need, and always give the loop an exit condition plus a max duration.
 
-### When NOT to Loop
-- Simple questions or explanations
-- Single-file edits or quick fixes
-- Conversations and brainstorming
-- Tasks completing in under 2 minutes
-- Coordinator is only selecting agents (not doing long work)
+### Beads in loop checks
+Only when beads issues are open for the current work: on each wakeup run `bd ready --json` and `bd list --status in_progress --json` once, update statuses for completed agents, report newly unblocked work. Never run bd commands on a timer with no open issues.
+
+### Ralph rules
+- Ralph IS the loop. Never stack a /loop or wakeup poll on top of a running ralph (CLI or plugin) — it double-spends. Observe via `ralph --status` / `ralph-monitor` / `bd ready`.
+- Prefer the ralph CLI (fresh context per iteration) over the ralph-loop plugin for anything beyond ~5 iterations; in-session re-feeding grows context cost every turn.
+- When using the ralph-loop plugin, ALWAYS pass `--completion-promise` and `--max-iterations`.
+- The ralph CLI is capped at 50 loops / 8h wall-clock per run (override: RALPH_MAX_TOTAL_LOOPS / RALPH_MAX_WALL_HOURS; 0 disables).
+- Ralph workdirs should disable claude-mem (and warp) via project-local `.claude/settings.json` `enabledPlugins` — otherwise every iteration pays SessionStart context injection, per-tool-call observations, and an LLM summarization on Stop.
+
+### When NOT to loop
+- Any harness-tracked agent work (notifications cover it)
+- Simple questions, single-file edits, conversations
+- Tasks completing in under ~10 minutes
+- While ralph is driving the work
 
 ## Quality Gates
 
-After coordinator returns results:
-
-1. **Verify** - Read agent results before presenting to user
-2. **Security check** - If code touches auth, payments, or user data: auto-launch security-engineer review
-3. **Test check** - If code was written: suggest launching test-generator
-4. **Doc check** - If API was created: suggest launching technical-writer
-5. **Beads check** - If tracking with beads: close completed issues, file discovered work, run `bd sync`
-
-## Examples
-
-### Simple routing (single agent, no beads)
-```
-User: "This API endpoint is returning 500 errors"
--> Launch coordinator
--> Coordinator selects: debugger + root-cause-analyst
--> No beads (2 agents, interactive diagnosis)
--> No loop (diagnosis is interactive)
-```
-
-### Moderate routing (parallel agents, no beads)
-```
-User: "Review this PR"
--> Launch coordinator
--> Coordinator selects: code-reviewer + security-auditor + quality-engineer (parallel)
--> No beads (parallel review, no dependencies)
--> /loop 5m check review progress
-```
-
-### Complex routing (sequential agents, beads tracking)
-```
-User: "Build a user authentication system"
--> Launch coordinator
--> Coordinator creates beads epic: "Build auth system"
--> Coordinator creates child issues with dependencies:
-   design (unblocked) -> implement-api + implement-ui (parallel) -> tests -> security-audit
--> Coordinator launches agents following dependency order
--> /loop 3m check progress + update beads statuses
--> On completion: close all issues, bd sync
-```
-
-### Large orchestration (many agents, full beads + loop)
-```
-User: "Modernize our payment system"
--> Launch coordinator
--> Coordinator creates beads epic with 8+ child issues
--> Coordinator engages workflow-orchestrator for process planning
--> Coordinator uses task-distributor for work assignment
--> Launches agents in phases, updating beads as each completes
--> /loop 3m check coordination + beads status
--> Discovers additional work -> files new beads issues linked to parent
--> On completion: close epic, bd sync, report summary
-```
-
-### Resuming from previous session
-```
-User: "Continue where we left off on the auth system"
--> Run: bd list -l auth-system --json
--> Run: bd ready --json
--> Show user what's completed and what's ready
--> Launch coordinator with remaining work context
--> Continue with beads tracking from existing issues
-```
+After agents return results:
+1. **Verify** — read agent results before presenting to the user
+2. **Security** — code touching auth/payments/user data → security-auditor review
+3. **Tests** — code written → suggest test-generator; gstack `/qa` for web flows
+4. **Docs** — API created → suggest technical-writer
+5. **Beads** — close completed issues, file discovered work, `bd sync`

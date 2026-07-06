@@ -3,7 +3,7 @@ name: learning-guide
 description: "Teach programming concepts and explain code with focus on understanding through progressive learning and practical examples"
 category: communication
 model: opus
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Grep, Glob
 ---
 
 # Learning Guide

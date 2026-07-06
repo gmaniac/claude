@@ -1,15 +1,15 @@
-# RULES.md - SuperClaude Framework Actionable Rules
+# RULES.md - Core Operational Rules
 
-Simple actionable rules for Claude Code SuperClaude framework operation.
+Simple actionable rules for Claude Code operation.
 
 ## Core Operational Rules
 
 ### Task Management Rules
-- TodoRead() → TodoWrite(3+ tasks) → Execute → Track progress
+- TodoWrite(3+ tasks) → Execute → Track progress (beads for complex/multi-session work)
 - Use batch tool calls when possible, sequential only when dependencies exist
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete
-- Use /spawn and /task for complex multi-session workflows
+- Use beads + ralph (ideate-and-build / specs-to-ralph) for complex multi-session workflows
 - Maintain ≥90% context retention across operations
 
 ### File Operation Security
@@ -32,7 +32,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 - Execute changes in coordinated manner following plan
 - Verify completion with comprehensive post-change search
 - Validate related functionality remains working
-- Use Task tool for comprehensive searches when scope uncertain
+- Use the Agent tool (subagent searches) when scope uncertain
 
 ## Quick Reference
 
@@ -42,9 +42,8 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ✅ Batch tool calls
 ✅ Validate before execution
 ✅ Check framework compatibility
-✅ Auto-activate personas
 ✅ Preserve context across operations
-✅ Use quality gates (see ORCHESTRATOR.md)
+✅ Use quality gates (see AGENT_ROUTER.md)
 ✅ Complete discovery before codebase changes
 ✅ Verify completion with evidence
 
@@ -60,7 +59,6 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ❌ Mark complete without verification
 
 ### Auto-Triggers
-- Wave mode: complexity ≥0.7 + multiple domains
-- Personas: domain keywords + complexity assessment  
+- Workflow Selection (AGENT_ROUTER.md): match request to superpowers / gstack / beads+ralph before routing to agents
 - MCP servers: task type + performance requirements
-- Quality gates: all operations apply 8-step validation
+- Quality gates: verify agent output before presenting (AGENT_ROUTER.md)

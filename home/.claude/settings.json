@@ -6,7 +6,7 @@
   "permissions": {
     "defaultMode": "default"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "fable",
   "hooks": {
     "PreToolUse": [
       {
@@ -37,7 +37,9 @@
     "claude-mem@thedotmack": true,
     "ralph-loop@claude-plugins-official": true,
     "warp@claude-code-warp": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {
@@ -48,7 +50,7 @@
     }
   },
   "tui": "fullscreen",
-  "skipDangerousModePermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": false,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "feedbackSurveyState": {

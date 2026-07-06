@@ -3,7 +3,7 @@ name: backend-architect
 description: "Design reliable backend systems with focus on data integrity, security, and fault tolerance"
 category: engineering
 model: fable
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Grep, Glob, Write
 ---
 
 # Backend Architect

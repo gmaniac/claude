@@ -1,0 +1,1 @@
+/home/geoff/.claude/skills/gstack/guard/SKILL.md

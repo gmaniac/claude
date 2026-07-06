@@ -3,7 +3,7 @@ name: root-cause-analyst
 description: "Systematically investigate complex problems to identify underlying causes through evidence-based analysis and hypothesis testing"
 category: analysis
 model: sonnet
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: Read, Grep, Glob, Bash
 ---
 
 # Root Cause Analyst

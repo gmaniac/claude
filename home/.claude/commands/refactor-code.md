@@ -1,3 +1,9 @@
+---
+allowed-tools: Read, Write, Edit, Bash, Grep, Glob
+argument-hint: [file-or-directory] | [refactoring-goal]
+description: Intelligently Refactor and Improve Code Quality
+---
+
 # Intelligently Refactor and Improve Code Quality
 
 Intelligently refactor and improve code quality
