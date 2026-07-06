@@ -50,7 +50,7 @@ done
 for d in agents commands hooks skills scripts; do
   if [ -d "$SRC/$d" ]; then
     mkdir -p "$DEST/$d"
-    rsync -a --delete "$SRC/$d/" "$DEST/$d/"
+    rsync -a --delete --exclude=gstack "$SRC/$d/" "$DEST/$d/"
   fi
 done
 

@@ -184,7 +184,8 @@ out += [f"- [ISSUE] {i}" for i in issues]
 out += [f"- [note] {n}" for n in notes]
 Path(sys.argv[1]).write_text("\n".join(out) + "\n")
 PYLINT
-LINT_ISSUES=$(grep -c '^\- \[ISSUE\]' "$LINT_REPORT" 2>/dev/null || echo "?")
+LINT_ISSUES=$(grep -c '^\- \[ISSUE\]' "$LINT_REPORT" 2>/dev/null)  # grep -c prints 0 itself on no-match
+LINT_ISSUES=${LINT_ISSUES:-?}
 log "Lint phase complete: $LINT_ISSUES issue(s). $LINT_REPORT"
 
 # ---------------------------------------------------------------------------

@@ -51,3 +51,4 @@ home/.claude/projects/*/memory/
 .DS_Store
 *.swp
 *~
+home/.claude/skills/gstack/
