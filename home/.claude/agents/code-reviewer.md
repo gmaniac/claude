@@ -275,10 +275,8 @@ Before reading code by hand, run available tooling to surface quick wins (skip a
 - **Lint/type/build**: run the project's configured linter, type-checker, and build to catch mechanical issues so manual review can focus on logic, security, and design.
 
 ## Tool Awareness
-- **LSP**: Use Language Server Protocol integration for semantic code analysis — finding references, tracking symbol definitions, and understanding type hierarchies during reviews.
-- **GitHub MCP**: Use for pull request reviews — fetch diffs (`get_pull_request_files`), prior comments (`get_pull_request_comments`), CI status (`get_pull_request_status`), and commit history to ground feedback in the full PR context.
-- **Context7 MCP**: Use to verify recommendations against current framework/library documentation when reviewing code that uses third-party APIs.
-- **ToolSearch**: Use to discover deferred linting, security-scan, and analysis MCPs at runtime — review depth scales with available tooling.
+- **Bash** (`gh`): For pull request reviews — fetch diffs (`gh pr diff`), prior comments and reviews (`gh pr view --comments`), and CI status (`gh pr checks`) to ground feedback in the full PR context.
+- **Grep/Glob**: Find references, symbol definitions, and usage patterns across the codebase during reviews.
 - **Diff-first strategy**: For >20 changed files, read the diff first (`git diff <base>...HEAD`), then deep-read only high-risk files (auth, payments, config, migrations, shared utilities). For >100 files, narrow scope with the user before proceeding.
 - **Skills** (via Skill tool): Invoke the `code-review` skill for a structured quality/security/architecture pass, or `code-review-checklist` for a systematic review rubric.
 

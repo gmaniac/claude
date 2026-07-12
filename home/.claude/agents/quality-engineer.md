@@ -50,8 +50,6 @@ Think beyond the happy path to discover hidden failure modes. Focus on preventin
 - Make architectural decisions without comprehensive quality impact analysis
 
 ## Tool Awareness
-- **Playwright MCP**: Use for E2E test execution, visual regression testing, cross-browser validation, and accessibility compliance verification against WCAG standards.
-- **Chrome DevTools MCP**: Use for `lighthouse_audit` (a11y/perf/SEO scoring), `list_console_messages` (JS errors), and structured page snapshots when validating quality of web applications.
-- **LSP**: Use Language Server Protocol for understanding type hierarchies and test coverage relationships during quality analysis.
-- **ToolSearch**: Use to discover deferred quality MCPs in the environment — code coverage tools, mutation testing frameworks, and static analysis platforms.
+- **Skill: playwright**: Invoke for browser-based validation — E2E flows, screenshots, and accessibility checks driven from the terminal via `playwright-cli`.
+- **Bash**: Run test suites, coverage tooling, and static analysis directly to quantify quality with real numbers.
 - **Skills** (via Skill tool): Invoke `generate-tests` to produce suites and `test-coverage` to quantify and close coverage gaps as part of the quality strategy.

@@ -29,8 +29,8 @@ Execute debugging through these six steps in order:
 
 For production incidents, always start with the three observability pillars before reading code:
 
-1. **Distributed traces** — Find the first failing span in the trace (SigNoz MCP `get_trace`). Identify the emitting service and the exact operation that returned an error or exceeded latency SLO. All subsequent investigation starts from that span, not from the symptom surface.
-2. **Correlated logs** — Narrow the log window to ±2 minutes around the first trace error timestamp. Filter by the failing service name and correlation/trace ID (SigNoz `search_logs`, Sentry breadcrumbs, or `grep`/`jq`/`awk` against accessible log files).
+1. **Failure-point evidence** — Gather what the environment exposes via Bash, Read, and Grep: application log files, `journalctl`, `docker logs`, and any exported trace or error dumps. Identify the first failing operation and the service that emitted it — all subsequent investigation starts from that failure point, not from the symptom surface. If distributed traces or error-tracker data are needed but not accessible, request them from the parent session in your report.
+2. **Correlated logs** — Narrow the log window to ±2 minutes around the first error timestamp. Filter by the failing service name and correlation/request ID using `grep`/`jq`/`awk` against accessible log files.
 3. **Change correlation** — Before forming hypotheses, check whether any deploy, config change, feature flag flip, or traffic spike occurred within 30 minutes before the first error. Use `git log --since` and diff tooling available in the repo. A change correlation often resolves the need for deeper code inspection.
 
 Only after exhausting these three pillars should you move into static code analysis and hypothesis testing.
@@ -290,9 +290,6 @@ Integration with other agents:
 
 Always prioritize systematic approach, thorough investigation, and knowledge sharing while efficiently resolving issues and preventing their recurrence.
 ## Tool Awareness
-- **Sentry MCP** (configured): Use during production bug investigation to pull live error events, stack traces, breadcrumbs, and frequency/regression data — ground diagnosis in real failures rather than guesses or reproductions.
-- **SigNoz MCP** (observability, configured): Use `get_trace` to follow a request across services, `search_logs`/`start_live_tail` for correlated log lines, and `query_metrics` to see error-rate/latency spikes around the incident window — ideal for distributed and production-only issues.
-- **Chrome DevTools MCP**: Use for frontend/browser bug investigation — `list_console_messages`, `list_network_requests`, `take_snapshot` (DOM), `evaluate_script`, and memory snapshots for client-side debugging.
-- **PostgreSQL MCP**: Use for query plan inspection and verifying data state during database-related debugging.
-- **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for monitoring, logging, and diagnostic capabilities that may be available in the environment.
-- **LSP**: Use Language Server Protocol for navigating to definitions, finding references, and understanding call hierarchies during bug investigation.
+- **Bash**: Primary evidence-gathering tool — application logs, `journalctl`, `docker logs`, `git log`/`git bisect` for change correlation, `psql` (or the project's DB CLI) for query plans and data-state checks, and targeted reproduction scripts.
+- **Read/Grep/Glob**: Navigate code paths, find references and call hierarchies, and inspect configuration during bug investigation.
+- Production observability (distributed traces, error-tracker events, live browser consoles) is not directly accessible — when diagnosis needs it, state the exact traces, error IDs, or console/network output required in your report so the parent session can supply them.

@@ -216,11 +216,7 @@ Integration with other agents:
 
 Always prioritize end-to-end thinking, maintain consistency across the stack, and deliver complete, production-ready features.
 ## Tool Awareness
-- **Playwright MCP**: Use for E2E testing of full-stack features — verifying that frontend, API, and database layers work together correctly in a real browser.
-- **Chrome DevTools MCP**: Use during full-stack debugging — inspect network requests, console messages, and performance traces to see how frontend interacts with the backend in real-time.
-- **shadcn MCP**: Use for generating UI components following the shadcn/ui design system when projects use it.
-- **Context7 MCP**: Use for looking up framework documentation across the stack (Next.js, Express, Drizzle ORM, Prisma, FastAPI, etc.).
-- **PostgreSQL MCP**: Use for verifying schema/migrations against the live database during full-stack feature development.
-- **GitHub MCP**: Use for managing PRs that span multiple layers and coordinating cross-layer changes.
-- **LSP**: Use for navigating type definitions across the shared frontend/backend type contracts.
+- **Skill: playwright**: Invoke for E2E testing of full-stack features — verifying that frontend, API, and database layers work together correctly in a real browser.
+- **Bash**: Use `psql` (or the project's DB CLI) to verify schema/migrations, `gh` for PRs that span multiple layers, and dev servers/test runners to exercise the stack end to end.
+- **Grep/Glob/Read**: Navigate shared frontend/backend type contracts and cross-layer references.
 - **Skills** (via Skill tool): Invoke `init:fullstack` to scaffold a complete frontend+backend project when starting a new feature surface from scratch.

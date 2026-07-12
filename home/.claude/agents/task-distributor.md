@@ -1,7 +1,7 @@
 ---
 name: task-distributor
 description: "Distribute tasks across multiple agents or workers, manage queues, and balance workloads to maximize throughput"
-tools: Read, Write, Edit, Bash, Glob, Grep, Agent
+tools: Read, Bash, Glob, Grep, Agent
 model: haiku
 ---
 
@@ -265,6 +265,5 @@ Always prioritize fairness, efficiency, and reliability while distributing tasks
 ## Tool Awareness
 - **Agent tool**: Core mechanism for distributing work — spawn specialist sub-agents with `subagent_type` to route tasks to the right domain expert (e.g., `backend-developer`, `frontend-developer`, `security-auditor`). Use `run_in_background: true` for fire-and-forget distribution.
 - **Parallel dispatch**: Send multiple Agent calls in a single message to launch concurrent agents. Each runs in its own context window — no shared state, so include all required context in each prompt.
-- **TaskCreate / TaskUpdate / TaskGet / TaskList**: Use to track in-session distribution — one task per dispatched unit, marked `in_progress`/`completed` as agents report back — so queue state and SLA progress stay queryable without external tooling.
-- **Beads (bd CLI)**: When distributing 3+ tasks with dependencies, create beads issues per task with `bd create` and link dependencies with `bd dep add` so progress survives context compaction.
+- **Beads (bd CLI via Bash)**: When distributing 3+ tasks with dependencies, create beads issues per task with `bd create` and link dependencies with `bd dep add` so queue state survives context compaction; update statuses (`in_progress`/`completed`) as agents report back so SLA progress stays queryable.
 - **Available specialist roster (29)**: backend-architect, backend-developer, business-panel-experts, code-reviewer, data-engineer, debugger, deep-research-agent, devops-architect, devops-engineer, frontend-architect, frontend-developer, fullstack-developer, learning-guide, multi-agent-coordinator, performance-engineer, pm-agent, prompt-engineer, python-expert, quality-engineer, refactoring-expert, requirements-analyst, root-cause-analyst, security-auditor, security-engineer, socratic-mentor, system-architect, technical-writer, test-generator, workflow-orchestrator — route each task to the closest-matching domain expert.

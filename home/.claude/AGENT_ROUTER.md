@@ -95,7 +95,7 @@ When launching multi-agent-coordinator, instruct it to:
 2. If 3+ agents, 10+ steps, or multi-session: create a beads epic + child issues with dependencies BEFORE launching agents; update statuses as agents complete; `bd sync` at session end.
 3. Prefer specialists over generalists; architects design, developers implement; pair implementation with test-generator; add security-auditor for auth/payment/user-data work.
 4. Use `isolation: "worktree"` for agents making risky multi-file changes.
-5. Surface MCP capabilities in agent prompts when relevant: Playwright/Chrome DevTools (browser, perf traces), Context7 (library docs — prefer over web search), GitHub, PostgreSQL, SigNoz/Sentry (observability), shadcn/Magic (UI components), Morphllm (bulk edits), Memory, Sequential-thinking, Tavily/Fetch (web research).
+5. Whitelisted specialist agents have NO MCP access (probe-verified) — never reference mcp__* tools or MCP servers in their prompts; give them Bash/skill equivalents instead (gh CLI, psql, curl, the playwright skill). MCP servers (Playwright/Chrome DevTools, Context7, GitHub, PostgreSQL, SigNoz, shadcn/Magic, Morphllm, Memory, Sequential-thinking, Tavily/Fetch) are reachable only from the main session or `tools: *` agents such as general-purpose.
 6. Prefer project-standard skills over ad-hoc reimplementation: generate-tests, test-coverage, code-review, security-audit, dependency-audit, refactor-code, performance-audit, generate-api-documentation, init:*, setup-docker-containers, prepare-release.
 
 ## Beads Integration
@@ -103,11 +103,11 @@ When launching multi-agent-coordinator, instruct it to:
 | Session type | Tracking |
 |---|---|
 | Trivial (1-2 steps) | none |
-| Moderate (3-10 steps, 1-2 agents) | TodoWrite / coordinator manages |
+| Moderate (3-10 steps, 1-2 agents) | In-session task list (TaskCreate/TaskUpdate) / coordinator manages |
 | Complex (10+ steps, 3+ agents, sequential deps) | beads epic + child issues |
 | Multi-session (days/weeks, survives compaction) | beads with full dependency graph |
 
-Core flow: `bd create "Epic" -t epic -p 1 --json` → child issues with `bd dep add <child> <epic> --type parent-child` and `--type blocks` for ordering → `bd update <id> --status in_progress` when an agent starts → `bd close <id>` when it finishes → discovered work gets `--type discovered-from` → `bd sync` before session end. Resume via `bd ready --json` + `bd list --status in_progress --json`. Beads beats TodoWrite for complex work because it survives compaction, tracks dependencies, and resumes across sessions.
+Core flow: `bd create "Epic" -t epic -p 1 --json` → child issues with `bd dep add <child> <epic> --type parent-child` and `--type blocks` for ordering → `bd update <id> --status in_progress` when an agent starts → `bd close <id>` when it finishes → discovered work gets `--type discovered-from` → `bd sync` before session end. Resume via `bd ready --json` + `bd list --status in_progress --json`. Beads beats the in-session task list for complex work because it survives compaction, tracks dependencies, and resumes across sessions.
 
 ## Loop Integration Rules
 

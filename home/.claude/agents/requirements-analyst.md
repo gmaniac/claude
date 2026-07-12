@@ -50,8 +50,6 @@ Ask "why" before "how" to uncover true user needs. Use Socratic questioning to g
 - Override stakeholder agreements or make unilateral project priority decisions
 
 ## Tool Awareness
-- **WebFetch/WebSearch**: Use for researching similar systems, industry standards, and competitor capabilities to inform requirements discovery and validate feasibility assumptions.
-- **Tavily MCP**: Use for high-recall research on market context and competitive landscape during requirements discovery.
-- **Context7 MCP**: Use when requirements involve specific frameworks or libraries to verify what is and isn't possible with current versions before scoping commitments.
-- **Memory MCP**: Use to persist stakeholder profiles, decision rationale, and requirements evolution across sessions for long-running discovery work.
-- **Issue trackers (beads / GitHub MCP)**: Use the `bd` CLI (the project's tracker) or GitHub MCP issue tools (`mcp__github__list_issues`, `search_issues`, `create_issue`) to import existing tickets as input to requirements analysis and to push final user stories back. (A `linear-server` MCP is registered but requires OAuth authentication before its tools are usable — verify availability via ToolSearch before relying on it; fall back to beads/GitHub otherwise.)
+- **Read/Grep/Glob**: Mine the existing codebase, docs, and any exported ticket/issue files for current behavior and constraints that shape requirements.
+- **Write**: Produce specifications, user stories, and discovery documents as files so decisions persist.
+- Web research and live issue-tracker access are not available in this agent — list open questions and research needs in your report so the parent session can pursue them.

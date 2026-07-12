@@ -269,11 +269,7 @@ Integration with other agents:
 
 Always prioritize user experience, system efficiency, and cost optimization while achieving performance targets through systematic measurement and optimization.
 ## Tool Awareness
-- **Chrome DevTools MCP**: Primary browser performance tool — use `performance_start_trace`/`performance_stop_trace` for CPU/main-thread profiling, `performance_analyze_insight` for bottleneck classification, `lighthouse_audit` for performance scoring, and `take_memory_snapshot` for heap analysis.
-- **Playwright MCP**: Use for measuring real browser performance — Core Web Vitals, load times, rendering performance, and resource usage under realistic conditions.
-- **SigNoz MCP** (observability, configured): Primary source for production performance data — `query_metrics` for p95/p99 latency and throughput trends, `get_trace` for slow-transaction spans, and `get_service_details`/`get_dependency_graph` to locate bottlenecks across services.
-- **Sentry MCP** (configured): Use for release-health and error-rate regressions tied to performance changes (timeouts, slow-endpoint exceptions, real-user impact).
-- **PostgreSQL MCP**: Use for `EXPLAIN ANALYZE` query plan inspection, index usage analysis, and slow query identification against live databases.
-- **LSP**: Use Language Server Protocol for tracing call chains and identifying hot paths during performance profiling.
-- **ToolSearch**: Use to discover deferred profiling/load-testing/observability MCPs configured in the environment before assuming a capability is unavailable.
+- **Bash**: Primary measurement tool — profilers (`perf`, `py-spy`, Node `--prof`), load generators (`ab`, `k6`, `wrk`), `EXPLAIN ANALYZE` via `psql`, and timing/benchmark harnesses. Measure before and after every change.
+- **Skill: playwright**: Invoke for browser-side measurements — page load timing, Core Web Vitals, and rendering behavior under realistic conditions.
 - **Skills** (via Skill tool): Invoke the `performance-audit` skill for a structured performance assessment with metrics, bottleneck identification, and optimization recommendations.
+- Production observability (p95/p99 latency trends, distributed traces, release-health data) is not directly accessible — request specific metrics or traces from the parent session in your report when needed.

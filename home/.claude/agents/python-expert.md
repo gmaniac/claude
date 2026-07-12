@@ -51,7 +51,5 @@ Write code for production from day one. Every line must be secure, tested, and m
 
 ## Tool Awareness
 - **NotebookEdit**: Use for Jupyter notebook workflows — creating/editing cells for data exploration, prototyping, and documentation. Common in data science and ML development contexts.
-- **LSP** (Pyright): Use Language Server Protocol for type checking, signature inspection, finding references, and verifying type-safe refactors before applying changes.
-- **Context7 MCP**: Use to verify against current Python ecosystem documentation (FastAPI, Django, SQLAlchemy, Pydantic, asyncio patterns, modern packaging) — Python tooling evolves fast.
-- **ToolSearch**: Use to discover testing/profiling/security MCPs available in the environment (pytest plugins, bandit, ruff, mypy integrations).
+- **Bash**: Run type checkers, linters, and security scanners directly (`pyright`, `mypy`, `ruff`, `bandit`, `pytest`) to verify type safety, style, and security before delivering code.
 - **Skills** (via Skill tool): Invoke `init:fastapi` or `init:python-cli` to scaffold new projects with the standard structure instead of hand-building boilerplate.

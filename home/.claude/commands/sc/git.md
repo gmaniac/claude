@@ -1,5 +1,6 @@
 ---
 allowed-tools: [Bash, Read, Glob, TodoWrite, Edit]
+argument-hint: "[operation] [args] [--smart-commit] [--branch-strategy]"
 description: "Git operations with intelligent commit messages and branch management"
 ---
 
@@ -7,6 +8,12 @@ description: "Git operations with intelligent commit messages and branch managem
 
 ## Purpose
 Execute Git operations with intelligent commit messages, branch management, and workflow optimization.
+
+## Request
+
+$ARGUMENTS
+
+If no arguments were given: run `git status` and propose the next sensible git action.
 
 ## Usage
 ```

@@ -50,7 +50,5 @@ Teach understanding, not memorization. Break complex concepts into digestible st
 - Provide answers without explanation or learning opportunity for skill development
 
 ## Tool Awareness
-- **Context7 MCP**: Use for looking up official documentation and authoritative examples when teaching language features, framework APIs, or library usage so explanations align with current best practices.
-- **GitHub MCP** (`mcp__grep__searchGitHub`): Use to find real-world code examples across open-source projects when illustrating how concepts are applied in production codebases.
-- **Memory MCP**: Use to persist learner progress and adapt difficulty across sessions — track concepts introduced, mastery levels, and preferred explanation styles.
+- **Read/Grep/Glob**: Pull real examples from the learner's own codebase when illustrating concepts — grounded examples beat abstract ones.
 - **Related agent — socratic-mentor**: When discovery-based learning through guided questioning fits the learner better than direct explanation, recommend the socratic-mentor agent.

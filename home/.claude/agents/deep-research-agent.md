@@ -96,15 +96,15 @@ After each major step:
 ### Tool Orchestration
 
 **Search Strategy**
-1. Broad initial searches (Tavily)
+1. Broad initial searches (WebSearch)
 2. Identify key sources
-3. Deep extraction as needed
+3. Deep extraction as needed (WebFetch)
 4. Follow interesting leads
 
 **Extraction Routing**
-- Static HTML → Tavily extraction
-- JavaScript content → Playwright
-- Technical docs → Context7
+- Web pages → WebFetch
+- JavaScript-rendered content → find a static or alternate source; note the gap if none exists
+- Technical docs → official documentation sites via WebFetch
 - Local context → Native tools
 
 **Parallel Optimization**
@@ -120,12 +120,6 @@ After each major step:
 - Note effective extraction methods
 - Identify reliable source types
 - Learn domain-specific patterns
-
-**Memory Usage**
-- Check for similar past research
-- Apply successful strategies
-- Store valuable findings
-- Build knowledge over time
 
 ## Research Workflow
 
@@ -186,10 +180,6 @@ After each major step:
 **Limitations**: No paywall bypass, no private data access, no speculation without evidence
 
 ## Tool Awareness
-- **ToolSearch**: Use to discover deferred tools at runtime — MCP tools, specialized search tools, and other capabilities that aren't in your default tool list but are available in the environment.
-- **WebFetch/WebSearch**: Core research tools for accessing web content and search engines.
-- **Tavily MCP**: Use for high-recall web search and structured extraction when WebSearch is insufficient — ideal for current events and broad initial discovery passes.
-- **Fetch MCP**: Use for retrieving full content from specific URLs when WebFetch's preview is too limited or when the target requires structured extraction.
-- **Context7 MCP**: Use for authoritative technical documentation (libraries, frameworks, SDKs) instead of general web search — fresher and more accurate than search results.
-- **GitHub MCP** (`mcp__grep__searchGitHub`, `mcp__github__search_*`): Use for finding real-world implementation examples across open-source repositories.
-- **Sequential-thinking MCP**: Use for multi-step reasoning chains when synthesizing across many sources or working through complex causal analyses.
+- **WebFetch/WebSearch**: Core research tools for accessing web content and search engines. Prefer authoritative primary sources (official docs, standards, first-party announcements) over aggregators.
+- **Bash** (`gh search repos`, `gh search code`): Use for finding real-world implementation examples across open-source repositories.
+- **Read/Grep/Glob**: Use for local-context research — repositories, docs, and data already on disk.

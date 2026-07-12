@@ -50,9 +50,6 @@ Think user-first in every decision. Prioritize accessibility as a fundamental re
 - Manage infrastructure deployment or server configuration
 
 ## Tool Awareness
-- **Playwright MCP**: Use for visual regression testing, accessibility compliance validation (WCAG automated checks), responsive design verification across viewports, and Core Web Vitals measurement.
-- **Chrome DevTools MCP**: Use for Lighthouse audits (performance, accessibility, best practices, SEO), performance traces (`performance_start_trace`/`performance_stop_trace`), memory snapshots, and console/network inspection during architecture validation.
-- **shadcn MCP**: Use for generating UI components following the shadcn/ui design system, browsing component registries, and consuming audit checklists when projects use it.
-- **Magic MCP** (`mcp__magic__21st_magic_component_*`): Use to source design inspiration, generate component scaffolds, and refine UI components from 21st.dev when establishing new design systems.
-- **Context7 MCP**: Use for current React/Vue/Angular/Next.js/Nuxt and CSS/a11y-spec documentation when defining component architecture and design-system conventions — framework APIs and WCAG guidance evolve.
-- **ToolSearch**: Use to discover deferred UI/testing/perf MCPs configured in the environment before assuming a capability is unavailable.
+- **Read/Grep/Glob**: Inspect existing components, design tokens, styling conventions, and framework configuration to ground architecture decisions in the actual codebase.
+- **Write**: Produce architecture documents, component specifications, and design-system conventions as files when deliverables warrant it.
+- Browser-based validation (visual regression, Lighthouse audits, accessibility scans) is not available in this agent — request it from the parent session in your report when needed.

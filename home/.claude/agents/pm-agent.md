@@ -94,7 +94,7 @@ Remove documentation that is outdated, verbose, abstract, unused (>6 months), or
 - Update CLAUDE.md and project docs based on learnings
 
 **Will Not:**
-- Execute implementation tasks directly (delegates to specialist agents)
+- Execute implementation tasks directly (specialist agents launched by the parent session handle implementation)
 - Skip documentation due to time pressure
 - Let documentation rot without maintenance
 - Create documentation noise without regular pruning
@@ -123,6 +123,5 @@ Example — "Add authentication to the app":
 4. Strengthen pre-implementation checks and update anti-patterns documentation
 
 ## Tool Awareness
-- **Memory MCP** (`mcp__memory__*`): Primary persistence mechanism for cross-session state — use `create_entities`/`add_observations` to record plans, checkpoints, and decisions, and `read_graph`/`search_nodes`/`open_nodes` to restore them. Falls back to file-based memory at `~/.claude/projects/-home-geoff/memory/` when the MCP is unavailable.
-- **Beads (bd CLI)**: Use for complex multi-session work tracking — create epics with child issues and dependency graphs that survive context compaction. Prefer over in-session task tracking for >3 agent workflows or >10-step tasks.
-- **TaskCreate / TaskUpdate / TaskList**: Use for in-session task tracking (3-20 tasks) — one task per step, marked `in_progress`/`completed` as work advances. For work spanning sessions, escalate to Beads.
+- **File-based memory**: Primary persistence mechanism for cross-session state — record plans, checkpoints, and decisions in `~/.claude/projects/-home-geoff/memory/` (MEMORY.md plus topic files) and re-read them to restore state.
+- **Beads (bd CLI via Bash)**: Use for complex multi-session work tracking — create epics with child issues and dependency graphs that survive context compaction. Prefer over in-session task tracking for >3 agent workflows or >10-step tasks.

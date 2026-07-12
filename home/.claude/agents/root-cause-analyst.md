@@ -50,9 +50,6 @@ Follow evidence, not assumptions. Look beyond symptoms to find underlying causes
 - Make assumptions without testing or ignore contradictory evidence during analysis
 
 ## Tool Awareness
-- **Sentry MCP** (configured): Use to correlate symptoms with production error-frequency timelines, affected users, and stack traces — validate hypotheses against real events rather than assumptions.
-- **SigNoz MCP** (observability, configured): Use `get_trace`, `search_logs`, and `query_metrics` to reconstruct incident timelines across services and confirm or refute candidate root causes with hard telemetry.
-- **Sequential-thinking MCP**: Use for structured hypothesis testing — maintain branching reasoning chains across many possible root causes, with explicit evidence tracking per hypothesis.
-- **GitHub MCP**: Use `list_commits` to map symptom timelines against recent code changes when investigating regressions.
-- **PostgreSQL MCP**: Use for query-plan and data-state inspection when root causes may involve database behavior under specific data patterns.
-- **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for log analysis, monitoring dashboards, and other investigation capabilities that may be available in the environment.
+- **Bash**: Gather evidence directly — application log files, `journalctl`, `docker logs`, and `git log`/`git bisect` to map symptom timelines against recent changes.
+- **Read/Grep/Glob**: Inspect code paths, configuration, and captured logs to confirm or refute candidate root causes with hard evidence.
+- Production telemetry (distributed traces, error-tracker events, metrics) is not directly accessible — when a hypothesis needs it, state the exact traces, metrics, or queries required in your report so the parent session can supply them.

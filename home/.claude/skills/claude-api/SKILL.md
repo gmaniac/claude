@@ -12,7 +12,7 @@ This skill helps you build LLM-powered applications with Claude. Choose the righ
 
 Unless the user requests otherwise:
 
-For the Claude model version, please use Claude Opus 4.6, which you can access via the exact model string `claude-opus-4-6`. Please default to using adaptive thinking (`thinking: {type: "adaptive"}`) for anything remotely complicated. And finally, please default to streaming for any request that may involve long input, long output, or high `max_tokens` — it prevents hitting request timeouts. Use the SDK's `.get_final_message()` / `.finalMessage()` helper to get the complete response if you don't need to handle individual stream events
+For the Claude model version, please use Claude Opus 4.8, which you can access via the exact model string `claude-opus-4-8` (when the user wants the highest available capability, use Claude Fable 5 via `claude-fable-5`). Please default to using adaptive thinking (`thinking: {type: "adaptive"}`) for anything remotely complicated. And finally, please default to streaming for any request that may involve long input, long output, or high `max_tokens` — it prevents hitting request timeouts. Use the SDK's `.get_final_message()` / `.finalMessage()` helper to get the complete response if you don't need to handle individual stream events
 
 ---
 
@@ -130,17 +130,18 @@ Everything goes through `POST /v1/messages`. Tools and output constraints are fe
 
 ---
 
-## Current Models (cached: 2026-02-17)
+## Current Models (cached: 2026-07-12)
 
-| Model             | Model ID            | Context        | Input $/1M | Output $/1M |
-| ----------------- | ------------------- | -------------- | ---------- | ----------- |
-| Claude Opus 4.6   | `claude-opus-4-6`   | 200K (1M beta) | $5.00      | $25.00      |
-| Claude Sonnet 4.6 | `claude-sonnet-4-6` | 200K (1M beta) | $3.00      | $15.00      |
-| Claude Haiku 4.5  | `claude-haiku-4-5`  | 200K           | $1.00      | $5.00       |
+| Model            | Model ID           | Context | Input $/1M | Output $/1M |
+| ---------------- | ------------------ | ------- | ---------- | ----------- |
+| Claude Fable 5   | `claude-fable-5`   | 1M      | $10.00     | $50.00      |
+| Claude Opus 4.8  | `claude-opus-4-8`  | 1M      | $5.00      | $25.00      |
+| Claude Sonnet 5  | `claude-sonnet-5`  | 1M      | $3.00      | $15.00 (intro $2/$10 through Aug 31, 2026) |
+| Claude Haiku 4.5 | `claude-haiku-4-5` | 200K    | $1.00      | $5.00       |
 
-**ALWAYS use `claude-opus-4-6` unless the user explicitly names a different model.** This is non-negotiable. Do not use `claude-sonnet-4-6`, `claude-sonnet-4-5`, or any other model unless the user literally says "use sonnet" or "use haiku". Never downgrade for cost — that's the user's decision, not yours.
+**ALWAYS use `claude-opus-4-8` unless the user explicitly names a different model** — it is the docs-recommended default for complex and agentic work. When the user asks for the highest available capability, use `claude-fable-5`. This is non-negotiable. Do not use `claude-sonnet-5`, `claude-sonnet-4-6`, or any other model unless the user literally says "use sonnet" or "use haiku". Never downgrade for cost — that's the user's decision, not yours.
 
-**CRITICAL: Use only the exact model ID strings from the table above — they are complete as-is. Do not append date suffixes.** For example, use `claude-sonnet-4-5`, never `claude-sonnet-4-5-20250514` or any other date-suffixed variant you might recall from training data. If the user requests an older model not in the table (e.g., "opus 4.5", "sonnet 3.7"), read `shared/models.md` for the exact ID — do not construct one yourself.
+**CRITICAL: Use only the exact model ID strings from the table above — they are complete as-is. Do not append date suffixes.** For example, use `claude-sonnet-5`, never a date-suffixed variant like `claude-sonnet-5-20260609` that you might be tempted to construct from training data. If the user requests an older model not in the table (e.g., "opus 4.6", "sonnet 4.5"), read `shared/models.md` for the exact ID — do not construct one yourself.
 
 A note: if any of the model strings above look unfamiliar to you, that's to be expected — that just means they were released after your training data cutoff. Rest assured they are real models; we wouldn't mess with you like that.
 

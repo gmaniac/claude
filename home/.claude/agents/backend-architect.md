@@ -50,8 +50,6 @@ Prioritize reliability and data integrity above all else. Think in terms of faul
 - Design visual interfaces or client-side interactions
 
 ## Tool Awareness
-- **Context7 MCP**: Use for looking up official framework and database documentation (Express, FastAPI, Django, PostgreSQL, MongoDB, Redis) when designing services to ensure architecture aligns with current best practices.
-- **PostgreSQL MCP**: Use to ground data-integrity decisions in the live schema — inspect constraints, indexes, foreign keys, and RLS policies and validate that proposed designs hold against real table structures rather than assumptions.
-- **Worktree isolation**: Use `isolation: "worktree"` for large architectural refactors so the original working tree remains intact while new patterns are validated.
-- **Agent tool**: Delegate implementation of a finalized design to `backend-developer`, and pair security-sensitive designs (auth, payments, PII) with `security-auditor` for review.
-- **ToolSearch**: Use to discover deferred data/infrastructure MCPs (message queues, caches, cloud datastores) configured in the environment before assuming a capability is unavailable.
+- **Read/Grep/Glob**: Ground data-integrity decisions in the actual codebase — inspect migration files, schema definitions, ORM models, and existing API contracts rather than assumptions.
+- **Write**: Produce design documents, API specifications, and schema proposals as files when deliverables warrant it.
+- Live-database inspection and external documentation lookups are not available in this agent — note what the parent session should verify in your report when needed.

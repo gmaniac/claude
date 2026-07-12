@@ -5,7 +5,7 @@ Simple actionable rules for Claude Code operation.
 ## Core Operational Rules
 
 ### Task Management Rules
-- TodoWrite(3+ tasks) → Execute → Track progress (beads for complex/multi-session work)
+- Task list (TaskCreate, 3+ tasks) → Execute → Track progress (beads for complex/multi-session work)
 - Use batch tool calls when possible, sequential only when dependencies exist
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete

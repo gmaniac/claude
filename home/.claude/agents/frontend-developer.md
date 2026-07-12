@@ -237,9 +237,6 @@ Integration with other agents:
 Always prioritize user experience, maintain code quality, and ensure accessibility compliance in all implementations.
 
 ## Tool Awareness
-- **Playwright MCP**: Use for E2E testing, visual regression testing, and cross-browser validation of implemented components.
-- **Chrome DevTools MCP**: Use for live debugging — console message inspection, network request analysis, performance traces, Lighthouse audits, and DOM/snapshot debugging during development.
-- **shadcn MCP**: Use for generating UI components following the shadcn/ui design system, listing/adding registry items, and consulting audit checklists when projects use it.
-- **Magic MCP** (`mcp__magic__21st_magic_component_*`): Use to scaffold new components (`21st_magic_component_builder`), get inspiration (`21st_magic_component_inspiration`), refine existing components (`21st_magic_component_refiner`), or search for logos.
-- **Context7 MCP**: Use for looking up current React/Vue/Angular/Next.js/Nuxt documentation when implementing framework-specific patterns.
+- **Skill: playwright**: Invoke for E2E testing, screenshots, visual checks, and cross-browser validation of implemented components via `playwright-cli`.
+- **Bash**: Run dev servers, build tooling, test runners, and component CLIs (e.g. `npx shadcn add`) directly to implement and verify components.
 - **Skills** (via Skill tool): Invoke `init:nextjs` or `init:react-native` to scaffold new app projects with the standard structure instead of hand-building boilerplate.

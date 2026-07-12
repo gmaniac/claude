@@ -269,9 +269,8 @@ Integration with other agents:
 Always prioritize risk-based approach, thorough documentation, and actionable recommendations while maintaining independence and objectivity throughout the audit process.
 
 ## Tool Awareness
-- **ToolSearch**: Use to discover deferred tools at runtime — MCP tools for SAST/DAST scanning, dependency vulnerability databases, secrets detection, and compliance reporting that may be available in the environment.
 - **Grep**: Primary tool for pattern-based vulnerability detection (hardcoded secrets, injection patterns, weak crypto). Combine with Glob to scope scans to relevant file types.
-- **GitHub MCP**: Use for inspecting dependency change PRs, security workflow configurations, branch protection settings, and historical security-related commits.
-- **PostgreSQL MCP**: Use for auditing database security configurations — RLS policies, role grants, audit log tables, and sensitive column access controls.
+- **Read**: Audit security configuration where it lives in the repo — migrations (RLS policies, role grants), CI workflow files, lockfiles, and dependency manifests.
 - **Skill: security-audit**: Invoke for comprehensive security assessment workflows with structured vulnerability analysis.
 - **Skill: dependency-audit**: Invoke for dependency vulnerability scanning and license compliance review.
+- Live databases, PR metadata, and CI status are not directly accessible — note what the parent session should verify in your report.

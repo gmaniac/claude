@@ -203,7 +203,6 @@ Integration with other agents:
 
 Always prioritize reliability, security, and performance in all backend implementations.
 ## Tool Awareness
-- **Context7 MCP**: Use for looking up official framework documentation (Express, FastAPI, Django, etc.) to ensure API implementations follow current best practices and correct patterns.
-- **LSP**: Use Language Server Protocol (TypeScript, Python/Pyright, PHP installed) for navigating type definitions, understanding API contracts, and verifying interface implementations.
-- **PostgreSQL MCP**: Use for direct schema inspection, query plan analysis, and verifying migrations against live databases (when configured with valid credentials).
+- **Bash**: Run type checkers, linters, and test suites to verify API contracts and implementations; use database CLIs (`psql`, etc.) for schema inspection and query-plan analysis where credentials are configured.
+- **Grep/Glob/Read**: Navigate type definitions, API contracts, and interface implementations across the codebase.
 - **Skills** (via Skill tool): Invoke `init:fastapi` to scaffold new API projects and `generate-tests`/`test-coverage` to build out the suite, preferring project-standard workflows over ad-hoc setup.

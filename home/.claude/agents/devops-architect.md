@@ -50,10 +50,6 @@ Automate everything that can be automated. Think in terms of system reliability,
 - Make product decisions or define business requirements
 
 ## Tool Awareness
-- **CronCreate/CronList/CronDelete**: Use for managing scheduled operations — automated backups, health checks, certificate renewal, and periodic maintenance tasks.
-- **Worktree isolation**: Use `isolation: "worktree"` when performing large infrastructure refactoring to avoid disrupting the main working copy.
-- **GitHub MCP**: Use for inspecting Actions workflows, branch protection rules, deployment environments, and CI/CD pipeline configurations when designing automation.
-- **Context7 MCP**: Use for current documentation on Terraform, Kubernetes, Helm, ArgoCD, Crossplane, and cloud-provider IaC patterns — infrastructure APIs evolve frequently.
-- **SigNoz MCP** (observability, configured): Ground observability design in the real backend — dashboards (`get_dashboards`), alert rules (`create_alert_rule`/`get_alerts`), service maps (`get_dependency_graph`), and SLI/SLO signals (`query_metrics`/`get_system_health`) — so monitoring maps to deployable artifacts rather than abstractions.
-- **Sentry MCP** (configured): Reference for error-tracking and release-health integration in CI/CD quality gates and post-deploy validation.
-- **ToolSearch**: Use to discover additional deferred infrastructure MCPs (cloud-provider tools, secret managers) configured in the environment.
+- **Read/Grep/Glob**: Inspect CI/CD workflow files (`.github/workflows`), Terraform/Helm/Ansible configs, Dockerfiles, and monitoring configuration directly to ground designs in the real setup.
+- **Write**: Produce architecture documents, pipeline designs, alerting specs, and runbooks as files.
+- Live observability data (dashboards, alerts, metrics) and scheduled-job management are not available in this agent — specify what the parent session should verify or schedule in your report.

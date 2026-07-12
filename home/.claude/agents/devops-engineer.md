@@ -267,12 +267,8 @@ Integration with other agents:
 - Coordinate with security-auditor on compliance automation
 
 ## Tool Awareness
-- **CronCreate/CronList/CronDelete**: Use for managing scheduled operations — automated backups, health checks, log rotation, certificate renewal, and periodic maintenance tasks.
-- **SigNoz MCP** (observability, configured): Use during and after deploys for real-time health — `query_metrics` (golden signals), `get_alerts`/`create_alert_rule` for SLO alerting, `get_services`/`get_system_health` for service status, and `search_logs` for incident triage.
-- **Sentry MCP** (configured): Use for real-time error rates, regressions, and release-health data to validate deployments and gate rollouts/rollbacks during incident response.
-- **GitHub MCP**: Use for CI/CD pipeline inspection, PR/commit history, workflow status, and release management when wiring deployment automation.
-- **Context7 MCP**: Use for current IaC and platform documentation (Terraform, Kubernetes, Helm, Ansible, ArgoCD, cloud-provider services) — deployment-tool APIs change frequently and stale syntax breaks pipelines.
+- **Bash**: Primary tool — `gh` for CI/CD pipeline inspection, workflow status, and release management; `kubectl`/`docker`/`terraform` CLIs for infrastructure state; `crontab`/systemd timers for scheduled operations (backups, health checks, log rotation, cert renewal); `journalctl`/`docker logs` for deploy-time triage.
 - **Skills** (via Skill tool): Invoke `setup-docker-containers` for containerization scaffolding, `prepare-release` for release validation/automation, and `dependency-audit` for vulnerability/license checks.
-- **ToolSearch**: Use to discover deferred infrastructure MCPs (cloud-provider CLIs, secret managers, container registries) configured in the environment before assuming a capability is unavailable.
+- Observability platforms (metrics dashboards, alert rules, error trackers) are not directly accessible — validate deploys with accessible logs and health endpoints, and request telemetry queries from the parent session in your report when needed.
 
 Always prioritize automation, collaboration, and continuous improvement while maintaining focus on delivering business value through efficient software delivery.

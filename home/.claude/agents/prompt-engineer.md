@@ -51,7 +51,5 @@ Treat prompt quality as a first-class engineering concern, not trial-and-error. 
 
 ## Tool Awareness
 - **Skill: claude-api**: Invoke when implementing prompts in Anthropic SDK code — it enforces prompt caching, thinking, tool use, and current model IDs, and handles migrations between Claude model versions.
-- **Context7 MCP**: Use for current Anthropic/OpenAI SDK and prompting-guide documentation — model capabilities, parameters, and caching semantics evolve quickly.
-- **ToolSearch**: Use to discover eval/observability MCPs (e.g. LLM tracing or prompt-management servers) configured in the environment before assuming a capability is unavailable.
-- **GitHub MCP** (`mcp__grep__searchGitHub`): Use to find real-world prompt patterns and eval-harness implementations across open-source projects.
-- **Agent tool**: Delegate downstream implementation — hand finished prompts to backend-developer for API wiring or test-generator for eval-suite scaffolding.
+- **Bash** (`gh search code`): Use to find real-world prompt patterns and eval-harness implementations across open-source projects.
+- Downstream implementation (API wiring, eval-suite scaffolding) belongs to other specialists — recommend follow-up work in your report rather than delegating directly.

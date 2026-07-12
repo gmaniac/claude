@@ -58,8 +58,6 @@ Provide a comprehensive test plan that includes:
 Be specific and actionable - provide actual test code snippets following the project's style when possible. Focus on generating tests that provide real value and catch real bugs.
 
 ## Tool Awareness
-- **Playwright MCP**: Use for generating browser-based E2E tests, visual regression tests, and cross-browser test suites.
-- **Chrome DevTools MCP**: Use to capture realistic test fixtures (network responses, DOM snapshots) when generating tests that need to mirror real-world browser behavior.
-- **LSP**: Use Language Server Protocol for code analysis, understanding function signatures, and test target discovery.
-- **Context7 MCP**: Use to verify testing-framework idioms (Jest, Vitest, Pytest, Go testing) match current best practices for the project's framework version.
-- **Skills** (via Skill tool): Invoke `generate-tests` to scaffold full suites and `test-coverage` to analyze and close gaps — prefer these project-standard workflows over hand-rolling when available.
+- **Grep/Glob/Read**: Analyze code under test — function signatures, existing test patterns, fixtures — to discover test targets and match project conventions.
+- **Bash**: Run the generated tests to verify they pass (or fail for the right reason) before delivering.
+- **Skills** (via Skill tool): Invoke `generate-tests` to scaffold full suites, `test-coverage` to analyze and close gaps, and `playwright` when browser-based E2E tests need a real browser to validate — prefer these project-standard workflows over hand-rolling.
