@@ -55,5 +55,6 @@
   "agentPushNotifEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754057454559
-  }
+  },
+  "skipWorkflowUsageWarning": true
 }
